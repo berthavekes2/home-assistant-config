@@ -1,0 +1,14 @@
+platform: rflink
+devices:
+  unitec_ffab_04: # Silvercrest D
+    name: TV Marc
+# unitec_ffab_03:  # Silvercrest C
+#   name:
+  ev1527_059900_0a:
+    name: Deur sensor Bert on
+  ev1527_059900_0e:
+    name: Deur sensor Bert off
+  ev1527_057310_0a:
+    name: Raam sensor Bert on
+  ev1527_057310_0e:
+    name: Raam sensor Bert off

@@ -1,0 +1,14 @@
+notify:
+  - name: pushoverbert
+    platform: pushover
+    api_key: a5ccuxbijub87g7rtoq5iosktb36g3
+    user_key: ua94q9mi2yjv8g8stgzrqenwi97a7f
+  - name: bert
+    platform: pushbullet
+    api_key: o.BsWxtoHugKRPGBwpku0OqcOwYUSGcdGT
+  - platform: nfandroidtv
+    name: tvbert
+    host: 192.168.2.42
+  - name: pushbulletthom
+    platform: pushbullet
+    api_key: o.E5NG11Oo8p4Jac6MM1e9Rytf69IYWojm

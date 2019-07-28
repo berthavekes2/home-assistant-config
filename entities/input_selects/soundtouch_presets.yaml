@@ -1,0 +1,11 @@
+soundtouch:
+  name: 'SoundTouch Presets:'
+  options:
+  - None
+  - Veronica Rock Radio
+  - Qmusic Nonstop
+  - Slam!
+  - Qmusic Het Foute Uur
+  - Slam! Hardstyle
+  - Arrow Classic Rock
+  initial: None

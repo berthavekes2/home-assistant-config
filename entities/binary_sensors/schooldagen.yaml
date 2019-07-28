@@ -1,0 +1,13 @@
+platform: workday
+country: NL
+name: School dagen
+workdays:
+  - mon
+  - tue
+  - wed
+  - thu
+  - fri
+excludes:
+  - sat
+  - sun
+  - holiday

@@ -1,0 +1,2 @@
+camera.ip_camera_bert:
+  expose: true

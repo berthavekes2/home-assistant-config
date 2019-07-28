@@ -1,0 +1,12 @@
+{
+    "name": "node-red-project",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "node-red-contrib-alarm": "~1.1.2",
+        "node-red-contrib-google-home-notify": "0.0.7",
+        "node-red-contrib-light-scheduler": "0.0.15",
+        "node-red-contrib-pushover": "~0.1.9"
+    }
+}

@@ -1,0 +1,6 @@
+name: Keuken lampen
+entities:
+  light.lamp_keuken:
+    state: on
+  light.lamp_tafel:
+    state: on

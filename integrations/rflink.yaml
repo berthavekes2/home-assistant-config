@@ -1,0 +1,4 @@
+# RFLink for 433Mhz devices.
+
+rflink:
+  port: /dev/ttyACM0

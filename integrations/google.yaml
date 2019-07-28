@@ -1,0 +1,3 @@
+google: # Agenda's
+  client_id: !secret googlecalendar_cient_id
+  client_secret: !secret googlecalendar_client_secret

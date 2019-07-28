@@ -1,0 +1,423 @@
+# - id: 11d0c03c468e4257a793429ccb01d04b
+#   alias: '[henkalarm] ServerBert notification offline'
+#   trigger:
+#   - entity_id: binary_sensor.serverbert
+#     platform: state
+#     to: 'off'
+#   action:
+#   - data:
+#       message: ServerBert is {% if is_state('binary_sensor.server', 'off') %}Offline{%
+#         endif %}!
+#       data:
+#         priority: '1'
+#         sound: alien
+#       target: nokiabert
+#       title: Prio1 Henk Alarm!
+#     service: notify.pushoverbert
+#   initial_state: true
+# - id: 53e3a8670abc4c729c5ed1ba52cc01d9
+#   alias: '[henkalarm] ServerBert notification online (test)'
+#   trigger:
+#   - entity_id: binary_sensor.serverbert
+#     platform: state
+#     to: 'on'
+#   action:
+#   - data:
+#       message: ServerBert is {% if is_state('binary_sensor.serverbert', 'on') %}Online{%
+#         endif %}!
+#       target: nokiabert
+#       title: Prio0 Henk Melding
+#     service: notify.pushoverbert
+#   initial_state: false
+# - id: 5b9b78be0c9b445b8bd13f847ba12c0d
+#   alias: '[henkalarm] AsusBert notification offline'
+#   trigger:
+#   - entity_id: binary_sensor.asusbert
+#     platform: state
+#     to: 'off'
+#   action:
+#   - data:
+#       message: AsusBert is {% if is_state('binary_sensor.asusbert', 'off') %}Offline{%
+#         endif %}!
+#       data:
+#         priority: '1'
+#         sound: alien
+#       target: nokiabert
+#       title: Prio1 Henk Alarm!
+#     service: notify.pushoverbert
+#   initial_state: true
+# - id: b0f08ca4b59c480e8e82a25bd11bfd5e
+#   alias: '[henkalarm] AsusBert notification online (test)'
+#   trigger:
+#   - entity_id: binary_sensor.asusbert
+#     platform: state
+#     to: 'on'
+#   action:
+#   - data:
+#       message: AsusBert is {% if is_state('binary_sensor.asusbert', 'on') %}Online{%
+#         endif %}!
+#       target: nokiabert
+#       title: Prio0 Henk Melding
+#     service: notify.pushoverbert
+#   initial_state: false
+# - id: fbcb490333e14d3aac1ba67f037f504e
+#   alias: '[henkalarm] Temperatuur hoog in kist notification'
+#   trigger:
+#   - above: '45'
+#     entity_id: sensor.dht_sensor_temperature
+#     platform: numeric_state
+#   action:
+#   - data:
+#       message: Het is erg warm in de kist. Temperatuur is {{ states.sensor.dht_sensor_temperature.state
+#         }} °C
+#       data:
+#         priority: '1'
+#         sound: alien
+#       target: nokiabert
+#       title: Prio1 Henk Alarm!
+#     service: notify.pushoverbert
+#   initial_state: true
+# - id: 107d76a68e5e49a7ad1a10875c075b5d
+#   alias: '[henkalarm] Temperatuur te hoog in kist notification'
+#   trigger:
+#   - above: '55'
+#     entity_id: sensor.dht_sensor_temperature
+#     platform: numeric_state
+#   action:
+#   - data:
+#       data:
+#         priority: '1'
+#         sound: persistent
+#       message: Het is te heet in de kist. Temperatuur is {{ states.sensor.dht_sensor_temperature.state
+#         }} °C
+#       target: nokiabert
+#       title: Prio2 Henk Alarm!
+#     service: notify.pushoverbert
+#   initial_state: true
+# - id: ac140fc8bfe048558c4622131fbf8060
+#   alias: '[wekker] Lamp Bert uit met alarm'
+#   trigger:
+#   - platform: template
+#     value_template: '{{ states.sensor.time.state == states.sensor.alarm_clock_time_long.state
+#       }}'
+#   condition:
+#   - condition: state
+#     entity_id: input_boolean.alarm_clock_status
+#     state: 'on'
+#   action:
+#   - service: script.wake_up
+#   initial_state: true
+- id: 7804932443414dc3befb65bf59979a2d
+  alias: '[tv] input_boolean tvbert_plex uit na 2sec'
+  trigger:
+  - entity_id: input_boolean.tvbert_plex
+    for:
+      seconds: '2'
+    platform: state
+    to: 'on'
+  action:
+  - entity_id: input_boolean.tvbert_plex
+    service: input_boolean.turn_off
+  initial_state: true
+- id: a50b77ed93484a09a7fcaed84dbb0148
+  alias: '[tv] Plex op TV Bert'
+  trigger:
+  - entity_id: input_boolean.tvbert_plex
+    platform: state
+    to: 'on'
+  action:
+  - data:
+      payload: plex
+      topic: cmnd/tvbert/run
+    service: mqtt.publish
+  initial_state: true
+- id: 14e903d5444b4b279b5d92954671a367
+  alias: '[tv] input_boolean tvbert_youtube uit na 2sec'
+  trigger:
+  - entity_id: input_boolean.tvbert_youtube
+    for:
+      seconds: '2'
+    platform: state
+    to: 'on'
+  action:
+  - entity_id: input_boolean.tvbert_youtube
+    service: input_boolean.turn_off
+  initial_state: true
+- id: e9dc002bd0e642278d05958a7843fe80
+  alias: '[tv] YouTube op TV Bert'
+  trigger:
+  - entity_id: input_boolean.tvbert_youtube
+    platform: state
+    to: 'on'
+  action:
+  - data:
+      payload: youtube
+      topic: cmnd/tvbert/run
+    service: mqtt.publish
+  initial_state: true
+- id: 752e2e1a28194a0e992c5083afd393fe
+  alias: '[tv] input_boolean tvbert_itv uit na 2sec'
+  trigger:
+  - entity_id: input_boolean.tvbert_itv
+    for:
+      seconds: '2'
+    platform: state
+    to: 'on'
+  action:
+  - entity_id: input_boolean.tvbert_itv
+    service: input_boolean.turn_off
+  initial_state: true
+- id: 9ec572b26362426da82ac67778ec0a94
+  alias: '[tv] KPN iTV online op TV Bert'
+  trigger:
+  - entity_id: input_boolean.tvbert_itv
+    platform: state
+    to: 'on'
+  action:
+  - data:
+      payload: itv
+      topic: cmnd/tvbert/run
+    service: mqtt.publish
+  initial_state: true
+- id: 314ee342eb894adbbafa56183ac6c614
+  alias: '[tv] input_boolean tvbert_turnon uit na 2sec'
+  trigger:
+  - entity_id: input_boolean.tvbert_turnon
+    for:
+      seconds: '2'
+    platform: state
+    to: 'on'
+  action:
+  - entity_id: input_boolean.tvbert_turnon
+    service: input_boolean.turn_off
+  initial_state: true
+- id: 1f1425feb1b544f491ccd35ece1c5bc2
+  alias: '[tv] Zet TV Bert aan'
+  trigger:
+  - entity_id: input_boolean.tvbert_turnon
+    platform: state
+    to: 'on'
+  action:
+  - data:
+      payload: turnon
+      topic: cmnd/tvbert/run
+    service: mqtt.publish
+  initial_state: true
+# - id: werk-1uur
+#   alias: '[kalender] werk-1uur'
+#   trigger:
+#   - below: '3600'
+#     entity_id: sensor.cal_alert_time
+#     platform: numeric_state
+#   condition:
+#   - before: '12:30:00'
+#     condition: time
+#   action:
+#   - data:
+#       entity_id: input_boolean.werkcalendar1uur
+#     entity_id: input_boolean.werkcalendar1uur
+#     service: input_boolean.turn_on
+#   - data:
+#       message: Je moet om {{states.sensor.starttimewerk.state}} werken!
+#       title: Wakker worden!
+#     service: notify.bert
+#   initial_state: true
+# - id: enable_zigbee_join
+#   alias: '[zigbee2mqtt] Enable Zigbee joining'
+#   initial_state: true
+#   trigger:
+#   - entity_id: input_boolean.zigbee_permit_join
+#     platform: state
+#     to: 'on'
+#   action:
+#   - data:
+#       payload: 'true'
+#       topic: zigbee2mqtt/bridge/config/permit_join
+#     service: mqtt.publish
+#   - data:
+#       entity_id: timer.zigbee_permit_join
+#     service: timer.start
+#   hide_entity: true
+# - id: disable_zigbee_join
+#   alias: '[zigbee2mqtt] Disable Zigbee joining'
+#   initial_state: true
+#   trigger:
+#   - entity_id: input_boolean.zigbee_permit_join
+#     platform: state
+#     to: 'off'
+#   action:
+#   - data:
+#       payload: 'false'
+#       topic: zigbee2mqtt/bridge/config/permit_join
+#     service: mqtt.publish
+#   - data:
+#       entity_id: timer.zigbee_permit_join
+#     service: timer.cancel
+#   hide_entity: true
+# - id: disable_zigbee_join_timer
+#   alias: '[zigbee2mqtt] Disable Zigbee joining by timer'
+#   initial_state: true
+#   trigger:
+#   - event_data:
+#       entity_id: timer.zigbee_permit_join
+#     event_type: timer.finished
+#     platform: event
+#   action:
+#   - data:
+#       payload: 'false'
+#       topic: zigbee2mqtt/bridge/config/permit_join
+#     service: mqtt.publish
+#   - data:
+#       entity_id: input_boolean.zigbee_permit_join
+#     service: input_boolean.turn_off
+#   hide_entity: true
+# - id: bose_presets
+#   alias: '[tv] Bose presets'
+#   initial_state: true
+#   trigger:
+#   - entity_id: input_number.soundtouch
+#     platform: state
+#   action:
+#   - data:
+#       entity_id: media_player.soundtouch
+#       volume_level: 0.2
+#     service: media_player.volume_set
+#   - data_template:
+#       entity_id: media_player.soundtouch
+#       media_content_id: '{{ trigger.to_state.state | int }}'
+#       media_content_type: music
+#     service: media_player.play_media
+# - id: '1551725453476'
+#   alias: '[tv] Soundbar'
+#   initial_state: true
+#   trigger:
+#   - entity_id: input_select.soundtouch
+#     platform: state
+#   condition: []
+#   action:
+#   - data_template:
+#       entity_id: input_number.soundtouch
+#       value: '{% if is_state("input_select.soundtouch", "Veronica Rock Radio") %}
+#         1 {% elif is_state("input_select.soundtouch", "Qmusic Nonstop") %} 2 {% elif
+#         is_state("input_select.soundtouch", "Slam!") %} 3 {% elif is_state("input_select.soundtouch",
+#         "Qmusic Het Foute Uur") %} 4 {% elif is_state("input_select.soundtouch", "Slam!
+#         Hardstyle") %} 5 {% elif is_state("input_select.soundtouch", "Arrow Classic
+#         Rock") %} 6 {% endif %}
+
+#         '
+#     service: input_number.set_value
+# - id: '12232147846583743'
+#   alias: automate_ifttt
+#   trigger:
+#   - platform: event
+#     event_type: ifttt_webhook_received
+#     event_data:
+#       action: call_service
+#   action:
+#   - service_template: '{{trigger.event.data.service}}'
+#     data_template:
+#       entity_id: '{{trigger.event.data.entity_id}}'
+# - id: bose_aan
+#   alias: '[tv] Bose aan boolean'
+#   initial_state: true
+#   trigger:
+#   - entity_id: input_boolean.soundbar
+#     platform: state
+#     to: 'on'
+#   action:
+#   - data:
+#       entity_id: media_player.soundbar
+#       media_content_id: 1
+#       media_content_type: playlist
+#     service: media_player.play_media
+#   - data:
+#       entity_id: media_player.soundbar
+#       volume_level: 0.15
+#     service: media_player.volume_set
+# - id: bose_uit
+#   alias: '[tv] Bose uit boolean'
+#   initial_state: true
+#   trigger:
+#   - entity_id: input_boolean.soundbar
+#     platform: state
+#     to: 'off'
+#   action:
+#   - data:
+#       entity_id: media_player.soundbar
+#   service: media_player.turn_off
+# - id: '1557318903199'
+#   alias: '[tv] Bose sync boolean'
+#   trigger:
+#   - entity_id: media_player.tv_huiskamer_2
+#     platform: state
+#     to: 'off'
+#   condition: []
+#   action:
+#   - data:
+#       entity_id: input_boolean.soundbar
+#     service: input_boolean.turn_off
+# - id: Notification_trein_naar_DenHaagHS
+#   alias: '[ov] Vertrektijd trein naar HS'
+#   trigger:
+#   - entity_id: person.bert_havekes
+#     event: enter
+#     platform: zone
+#     zone: zone.leiden_centraal
+#   condition:
+#   - after: 06:15:00
+#     before: 09:30:00
+#     condition: time
+#     weekday:
+#     - mon
+#     - tue
+#     - wed
+#     - thu
+#     - fri
+#   action:
+#   - data_template:
+#       message: Vertrektijd {{ states.sensor.leiden_den_haag_hs.attributes.departure_time_actual
+#         }} vanaf spoor {{ states.sensor.leiden_den_haag_hs.attributes.departure_platform
+#         }}, aankomst om {{ states.sensor.leiden_den_haag_hs.attributes.arrival_time_actual
+#         }}. Volgende trein vertrekt om {{ states.sensor.leiden_den_haag_hs.attributes.next
+#         }}.
+#       title: 'Trein naar Den Haag HS: {{ states.sensor.leiden_den_haag_hs.attributes.status
+#         }}.'
+#     service: notify.pushoverbert
+# - id: Notification_trein_naar_LeidenCentraal
+#   alias: '[ov] Vertrektijd trein naar Leiden Centraal'
+#   trigger:
+#   - entity_id: person.bert_havekes
+#     event: enter
+#     platform: zone
+#     zone: zone.den_haag_hs
+#   condition:
+#   - after: 09:30:00
+#     condition: time
+#     weekday:
+#     - mon
+#     - tue
+#     - wed
+#     - thu
+#     - fri
+#   action:
+#   - data_template:
+#       message: Vertrektijd {{ states.sensor.den_haag_hs_leiden.attributes.departure_time_actual
+#         }} vanaf spoor {{ states.sensor.den_haag_hs_leiden.attributes.departure_platform
+#         }}, aankomst om {{ states.sensor.den_haag_hs_leiden.attributes.arrival_time_actual
+#         }}. Volgende trein vertrekt om {{ states.sensor.den_haag_hs_leiden.attributes.next
+#         }}.
+#       title: 'Trein naar Den Haag HS: {{ states.sensor.den_haag_hs_leiden.attributes.status
+#         }}.'
+#     service: notify.pushoverbert
+# - id: '1558538132384'
+#   alias: '[updater] notification'
+#   trigger:
+#   - entity_id: updater.updater
+#     platform: state
+#   condition: []
+#   action:
+#   - data:
+#       message: 'Versie {{ states.updater.updater.state }} is beschikbaar. '
+#       target: nokiabert
+#       title: Prio0 Henk Update!
+#     service: notify.pushoverbert

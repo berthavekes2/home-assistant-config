@@ -1,0 +1,13 @@
+film:
+  alias: Filmscript
+  sequence:
+  - data:
+      entity_id: input_boolean.tvbert_turnon
+    service: input_boolean.turn_on
+  - delay: 00:00:10
+  - data:
+      entity_id: input_boolean.tvbert_plex
+    service: input_boolean.turn_on
+  - data:
+      entity_id: light.lamp_bert
+    service: light.turn_off

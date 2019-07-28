@@ -1,0 +1,8 @@
+---
+#
+# This handles the loading of my weather platforms.
+#
+# https://www.home-assistant.io/components/weather/
+#
+weather:
+  - platform: buienradar

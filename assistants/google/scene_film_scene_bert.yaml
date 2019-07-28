@@ -1,0 +1,2 @@
+scene.film_scene_bert:
+  expose: true

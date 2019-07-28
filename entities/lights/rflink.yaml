@@ -1,0 +1,15 @@
+platform: rflink
+devices:
+#  unitec_ffab_01: #Silvercrest A
+#    name:
+  newkaku_035b7c00_2: # Flamingo A
+    name: Staande lamp bank
+  unitec_ffab_02:
+    name: LED Strip Marc # Silvercrest B
+#  newkaku_035b7c00_3: # Flamingo B
+#    name:
+#  newkaku_035b7c00_4: # Flamingo C
+#    name:
+#  newkaku_035b7c00_4: # Flamingo D
+#    name:
+automatic_add: false

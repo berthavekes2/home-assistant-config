@@ -1,0 +1,17 @@
+platform: universal
+name: TV Huiskamer
+state_template: >
+  {% if is_state('media_player.soundbar', 'unavailable') and is_state('media_player.tv_huiskamer', 'playing') %}
+    streaming
+  {% elif is_state('media_player.soundbar', 'unavailable') and is_state('media_player.tv_huiskamer', 'off') %}
+    tv
+  {% elif is_state('media_player.soundbar', 'playing') %}
+    radio
+  {% elif is_state('media_player.soundbar', 'off') %}
+    off
+  {% else %}
+    unknown
+  {% endif %}
+children:
+  - media_player.soundbar
+  - media_player.tv_huiskamer

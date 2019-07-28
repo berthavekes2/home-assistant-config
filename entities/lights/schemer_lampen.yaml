@@ -1,0 +1,7 @@
+platform: group
+name: Schemer lampen
+entities:
+  - light.dressoir_links
+  - light.dressoir_rechts
+  - light.lamp_bijzettafel
+  - light.staande_lamp_bank

@@ -1,0 +1,8 @@
+platform: mqtt
+name: "Lamp Marc"
+command_topic: "cmnd/lamp_marc/power"
+state_topic: "stat/lamp_marc/POWER"
+qos: 1
+payload_on: "ON"
+payload_off: "OFF"
+retain: false

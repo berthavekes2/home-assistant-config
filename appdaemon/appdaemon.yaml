@@ -1,0 +1,15 @@
+log:
+  logfile: STDOUT
+  errorfile: STDERR
+appdaemon:
+  threads: 10
+  app_dir: /config/appdaemon/apps
+  plugins:
+    HASS:
+      type: hass
+      ha_url: "https://thuus.duckdns.org:444"
+      ka_key: Bert2378!
+      token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiZTJiMzlmYjgxNmU0YmRiOTYwNDI3ZDBlYjQ0NDdjOSIsImlhdCI6MTU1MTY0MDg1MSwiZXhwIjoxODY3MDAwODUxfQ.ot5f9yLv5TKivhDOzvvB6BR5k-cADkmWvB-4JskDjRU
+hadashboard:
+  dash_url: http://thuus.duckdns.org:5050
+  dash_dir: /config/appdaemon/dashboards

@@ -1,0 +1,59 @@
+---
+# The history component will track everything that is going on within
+# Home Assistant and allows the user to browse through it.
+#
+# https://www.home-assistant.io/components/history/
+#
+history:
+  exclude:
+    domains:
+      - automation
+      - input_boolean
+      - script
+      - weblink
+      - updater
+      - group
+      - input_number
+      - media_player
+      - weather
+      - zone
+      - calendar
+      - timer
+      - device_tracker
+    entities:
+      - light.huiskamer
+      - sensor.samsung_scx_3200_series_192_168_2_52
+      - sensor.solaredge_current_power
+      - sensor.solaredge_energy_today
+      - sensor.solaredge_energy_this_month
+      - sensor.solaredge_energy_this_year
+      - sensor.solaredge_lifetime_energy
+      - media_player.chrome_2
+      - sensor.den_haag_hs_leiden
+      - sensor.leiden_den_haag_hs
+      - weather.br_unknown_station
+      - media_player.hele_huis
+      - sensor.laser_printer
+      - sensor.alarm_clock_hour
+      - sensor.alarm_clock_minute
+      - sensor.alarm_clock_time
+      - sensor.alarm_clock_time_long
+      - sensor.date_time
+      - sensor.cal_alert_time
+      - sensor.nokia_bert_wekker
+      - camera.ip_camera
+      - binary_sensor.remote_ui
+      - device_tracker.bert_havekes
+      - device_tracker.eddy
+      - device_tracker.jacqueline
+      - device_tracker.eliza
+      - device_tracker.thom
+      - device_tracker.marc
+      - sensor.deurbel
+      - sensor.laser_printer_2
+      - sensor.rf_receiver
+      - sensor.starttimewerk
+      - sensor.tv_bert_status
+      - sensor.custom_card_tracker
+      - sensor.custom_component_tracker
+      - sensor.custom_python_script_tracker

@@ -1,0 +1,6 @@
+media_player.soundbar:
+  expose: true
+  aliases:
+    - Radio
+    - Bose
+    - Soundbar

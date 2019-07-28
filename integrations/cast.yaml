@@ -1,0 +1,9 @@
+cast:
+  media_player:
+    - host: 192.168.2.40 # TV Huiskamer
+    - host: 192.168.2.43 # Home Mini Bert
+    - host: 192.168.2.44 # TV Marc
+    - host: 192.168.2.45 # JBL Link 20 Marc
+    - host: 192.168.2.46 # TV Thom
+    - host: 192.168.2.47 # Home Mini Thom
+    - host: 192.168.2.41 # Home Mini Huiskamer

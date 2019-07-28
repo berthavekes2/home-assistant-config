@@ -1,0 +1,4 @@
+name: Film scene
+entities:
+  script.film:
+    state: on

@@ -1,0 +1,4 @@
+name: Radio stil
+entities:
+  script.radio_stil:
+    state: on

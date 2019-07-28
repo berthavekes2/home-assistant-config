@@ -1,0 +1,4 @@
+platform: google_maps
+username: !secret googleuser
+password: !secret googlepass
+max_gps_accuracy: 100

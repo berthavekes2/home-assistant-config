@@ -1,0 +1,30 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Henk
+
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: -2
+
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Amsterdam
+
+  # Load packages
+  packages: !include_dir_named integrations
+  customize: !include customize.yaml  #../todo/customize.yaml
+
+conversation:
+person:
+hacs:
+  token: 51627746179455449d2b0481e45498ae21e20cf8
+  appdaemon: true
+  python_script: true
+  theme: true
+breaking_changes:
+

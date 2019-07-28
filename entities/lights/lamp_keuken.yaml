@@ -1,0 +1,8 @@
+platform: mqtt
+name: "Lamp keuken"
+command_topic: "cmnd/lampkeuken/power2"
+state_topic: "stat/lampkeuken/POWER2"
+qos: 1
+payload_on: "ON"
+payload_off: "OFF"
+retain: false

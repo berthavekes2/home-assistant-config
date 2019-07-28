@@ -1,0 +1,173 @@
+sensor.time:
+  hidden: true
+sensor.alarm_clock_hour:
+  hidden: true
+sensor.alarm_clock_minute:
+  hidden: true
+sensor.alarm_clock_time_long:
+  hidden: true
+sensor.alarm_clock_time:
+  friendly_name: Alarm Clock Setting
+  icon: mdi:alarm
+input_slider.alarm_clock_hour:
+  friendly_name: Hour
+  icon: mdi:timer
+input_slider.alarm_clock_minute:
+  friendly_name: Minute
+  icon: mdi:timer
+input_boolean.alarm_clock_status:
+  friendly_name: Alarm Clock Status
+  icon: mdi:alarm-check
+light.dressoir_links:
+  icon: mdi:desk-lamp
+light.dressoir_rechts:
+  icon: mdi:desk-lamp
+light.lamp_bijzettafel:
+  icon: mdi:desk-lamp
+light.staande_lamp_bank:
+  icon: mdi:floor-lamp
+light.lamp_bert:
+  icon: mdi:ceiling-light
+light.lamp_marc:
+  icon: mdi:ceiling-light
+light.led_strip_marc:
+  icon: mdi:led-off
+media_player.tv_huiskamer_2:
+  icon: mdi:television
+media_player.soundbar:
+  icon: mdi:speaker
+sensor.tv_bert_status:
+  icon: mdi:television
+media_player.home_mini_bert:
+  icon: mdi:speaker
+media_player.home_mini_thom:
+  icon: mdi:speaker
+media_player.tv_thom_2:
+  icon: mdi:television
+switch.tv_marc:
+  icon: mdi:television
+media_player.jbl_link_20:
+  icon: mdi:speaker
+media_player.home_mini_huiskamer:
+  icon: mdi:speaker
+light.lampthom:
+  friendly_name: Lamp Thom
+  icon: mdi:ceiling-light
+light.lamp_thom:
+  icon: mdi:ceiling-light
+light.lamp_keuken:
+  icon: mdi:ceiling-light
+light.lamp_tafel:
+  icon: mdi:ceiling-light
+light.lamp_buiten:
+  icon: mdi:track-light
+light.lamp_huiskamer:
+  icon: mdi:ceiling-light
+media_player.shield_tv_bert_2:
+  friendly_name: TV Bert
+  icon: mdi:television
+light.buiten_lamp:
+  icon: mdi:track-light
+light.groot_licht:
+  icon: mdi:ceiling-light
+light.nacht_lamp:
+  friendly_name: Nacht Lamp
+  icon: mdi:ceiling-light
+media_player.shield_tv_bert:
+  icon: mdi:television
+media_player.fire_tv_stick:
+  icon: mdi:television
+light.huiskamer:
+  hidden: true
+sensor.solaredge_current_power:
+  hidden: true
+sensor.solaredge_energy_this_month:
+  hidden: true
+sensor.solaredge_energy_this_year:
+  hidden: true
+sensor.solaredge_energy_today:
+  hidden: true
+sensor.solaredge_lifetime_energy:
+  hidden: true
+person.bert_havekes:
+  entity_picture: /local/bert.jpg
+person.eddy_havekes:
+  entity_picture: /local/eddy.jpg
+person.eliza_amling:
+  entity_picture: /local/eliza.jpg
+person.jacqueline_havekes:
+  entity_picture: /local/jacqueline.jpg
+person.thom_havekes:
+  entity_picture: /local/thom.jpg
+person.marc_havekes:
+  entity_picture: /local/marc.jpg
+sensor.dht_sensor_humidity:
+  icon: mdi:water-percent
+binary_sensor.serverbert:
+  hidden: true
+  icon: mdi:server-network
+sensor.serverbert:
+  icon: mdi:server-network
+binary_sensor.asusbert:
+  hidden: true
+  icon: mdi:server-network
+sensor.asusbert:
+  icon: mdi:server-network
+device_tracker.nf257d:
+  entity_picture: /local/tiguan2.jpg
+sensor.nf257d_battery:
+  friendly_name: Accu
+binary_sensor.nf257d_ignition:
+  friendly_name: Contact
+sensor.nf257d_fuel_left:
+  friendly_name: Brandstof
+binary_sensor.nf257d_locked:
+  friendly_name: Deuren
+sensor.nf257d_mileage_left:
+  friendly_name: Radius
+binary_sensor.nf257d_parking_brake:
+  friendly_name: Handrem
+sensor.nf257d_mileage:
+  friendly_name: Kilometerstand
+device_tracker.google_maps_116461996308389920595:
+  entity_picture: /local/eddy.jpg
+  name: Eddy
+  hidden: true
+device_tracker.google_maps_101285871487575320371:
+  entity_picture: /local/thom.jpg
+  name: Thom
+  hidden: true
+sensor.gft:
+  friendly_name: Groente-, fruit- en tuinafval
+  entity_picture: /local/gft3.png
+sensor.pmd:
+  friendly_name: Plastic, metaal en drankenkartons
+  entity_picture: /local/pmd3.png
+sensor.restafval:
+  friendly_name: Restafval
+  entity_picture: /local/rest3.png
+sensor.papier:
+  friendly_name: Papier
+  entity_picture: /local/papier3.png
+sensor.cyclus_morgen:
+  friendly_name: Cyclus morgen
+  entity_picture: /local/kliko3.png
+sensor.cyclus_vandaag:
+  friendly_name: Cyclus vandaag
+  entity_picture: /local/kliko3.png
+binary_sensor.ip_camera_bert_external:
+binary_sensor.school_dagen:
+device_tracker.google_maps_106596050310823037889:
+  hidden: true
+device_tracker.google_maps_106596050310823037889:
+  hidden: true
+device_tracker.google_maps_116461996308389920595:
+  hidden: true
+device_tracker.google_maps_117430214966920724026:
+  hidden: true
+device_tracker.google_maps_berthavekes2_gmail_com:
+  hidden: true
+device_tracker.life360_bert_havekes:
+  hidden: true
+device_tracker.life360_thom_havekes:
+  hidden: true

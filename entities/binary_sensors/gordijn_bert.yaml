@@ -1,0 +1,4 @@
+platform: mqtt
+state_topic: "gordijnbert"
+device_class: opening
+name: "Gordijn Bert"

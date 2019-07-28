@@ -1,0 +1,4 @@
+pihole:
+  title: Pi-hole
+  icon: mdi:block-helper
+  url: https://thuus.duckdns.org:4865

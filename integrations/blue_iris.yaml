@@ -1,0 +1,23 @@
+# Example configuration.yaml entry
+blueiris:
+  host: 192.168.2.12
+  port: 81
+  # [optional] Blue Iris admin username and password
+  username: henk
+  password: henkhenk
+  # [optional] Blue Iris profile numbers - will create switch if defined
+  #   -1 is Default profile
+  #   0 is Inactive profile
+  #   1-7 profile range
+  profile:
+    # armed profile number
+    armed: 1
+    # unarmed profile number
+    unarmed: 2
+  # List of camera objects
+  camera:
+      # Camera short name in Blue Iris
+    - id: Cam1
+      # [optional] Name of the camera for display
+      name: 'IP Camera Bert'
+      room: 'Slaapkamer Bert'

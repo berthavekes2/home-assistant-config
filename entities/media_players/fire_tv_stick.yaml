@@ -1,0 +1,14 @@
+platform: androidtv
+host: 192.168.2.48
+name: Fire TV Stick
+adb_server_ip: 127.0.0.1
+adb_server_port: 5037
+apps:
+  com.amazon.tv.launcher: "Homescreen"
+  com.google.android.youtube.tv: "Youtube"
+  org.xbmc.kodi: "Kodi"
+  com.netflix.ninja: "Netflix"
+  com.plexapp.android: "Plex"
+  com.googlecode.eyesfree.setorientation: "Set Orientation"
+  tunein.player: "Tunein"
+  com.fluxii.android.mousetoggleforfiretv: "Mouse toggle"

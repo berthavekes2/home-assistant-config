@@ -1,0 +1,6 @@
+radio_stil:
+  alias: Radio Stil Script
+  sequence:
+  - data:
+      entity_id: media_player.soundbar
+    service: media_player.turn_off
