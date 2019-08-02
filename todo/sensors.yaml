@@ -247,7 +247,7 @@
   password: !secret 17trackpass
 ##
 # - platform: pushbullet
-#   api_key: o.BsWxtoHugKRPGBwpku0OqcOwYUSGcdGT
+#   api_key: !secret pushbulletbert
 ##
 - platform: afvalbeheer
   wastecollector: Cyclus
