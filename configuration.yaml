@@ -27,4 +27,6 @@ hacs:
   python_script: true
   theme: true
 breaking_changes:
-
+webhook:
+zigbee2mqtt_networkmap:
+#  topic: your topic (optional, default zigbee2mqtt)
