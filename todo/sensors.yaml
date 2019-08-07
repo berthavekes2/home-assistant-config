@@ -108,24 +108,18 @@
     - temperature
     - humidity
 
-- platform: filter # Filter tegen lage fake readings
-  name: "dht_sensor_temperature_filter1"
+- platform: filter # Filter voor mooie grafiek
+  name: "dht_sensor_temperature_filter"
   entity_id: sensor.dht_sensor_temperature
   filters:
-    - filter: range
-      lower_bound: 20
-
-- platform: filter # Filter voor mooie grafiek
-  name: "dht_sensor_temperature_filter2"
-  entity_id: sensor.dht_sensor_temperature_filter1
-  filters:
+    - filter: lowpass
+      precision: 0
     - filter: range
       lower_bound: 20
     - filter: outlier
-      window_size: 4
+      window_size: 20
       radius: 10.0
-    - filter: lowpass
-      precision: 2
+
 ##
 - platform: time_date # Wekker
   display_options:
