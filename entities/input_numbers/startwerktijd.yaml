@@ -1,0 +1,6 @@
+werk_tijd_offset:
+  name: "Werk tijd alarm offset"
+  min: "-120"
+  max: "0"
+  mode: box
+  unit_of_measurement: minuten
