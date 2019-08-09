@@ -1,17 +1,45 @@
 platform: universal
 name: TV Huiskamer
 state_template: >
-  {% if is_state('media_player.soundbar', 'unavailable') and is_state('media_player.tv_huiskamer', 'playing') %}
-    streaming
-  {% elif is_state('media_player.soundbar', 'unavailable') and is_state('media_player.tv_huiskamer', 'off') %}
+  {% if is_state('media_player.soundbar', 'unavailable') and is_state('media_player.tv_huiskamer', 'off') %}
     tv
-  {% elif is_state('media_player.soundbar', 'playing') %}
-    radio
-  {% elif is_state('media_player.soundbar', 'off') %}
-    off
+  {% elif is_state('media_player.tv_huiskamer', 'playing') %}
+    {{ states('media_player.tv_huiskamer') }}
   {% else %}
-    unknown
+  {{ states('media_player.soundbar') }}
   {% endif %}
+
 children:
   - media_player.soundbar
   - media_player.tv_huiskamer
+
+commands:
+  turn_on:
+    service: media_player.turn_on
+    data:
+      entity_id: media_player.soundbar
+  turn_off:
+    service: media_player.turn_off
+    data:
+      entity_id: media_player.soundbar
+  volume_up:
+    service: media_player.volume_up
+    data:
+      entity_id: media_player.soundbar
+  volume_down:
+    service: media_player.volume_down
+    data:
+      entity_id: media_player.soundbar
+  volume_mute:
+    service: media_player.volume_mute
+    data:
+      entity_id: media_player.soundbar
+  volume_set:
+    service: media_player.volume_set
+    data_template:
+      entity_id: media_player.soundbar
+      volume_level: '{{ volume_level }}'
+
+attributes:
+  is_volume_muted: media_player.soundbar|is_volume_muted
+  volume_level: media_player.soundbar|volume_level
