@@ -2,7 +2,6 @@
 google_assistant:
   project_id: hassio-6ca34
   exposed_domains:
-  - switch
   - light
   - scene
   entity_config:  !include_dir_merge_named ../assistants/google
