@@ -2,7 +2,7 @@
  "nodes": {
   "node-red": {
    "name": "node-red",
-   "version": "0.20.6",
+   "version": "0.20.7",
    "local": false,
    "nodes": {
     "inject": {
@@ -400,7 +400,7 @@
   },
   "node-red-contrib-bigtimer": {
    "name": "node-red-contrib-bigtimer",
-   "version": "2.2.0",
+   "version": "2.2.3",
    "local": false,
    "nodes": {
     "bigtimer": {
@@ -451,7 +451,7 @@
   },
   "node-red-contrib-home-assistant-websocket": {
    "name": "node-red-contrib-home-assistant-websocket",
-   "version": "0.12.3",
+   "version": "0.14.2",
    "local": false,
    "nodes": {
     "server": {
@@ -588,7 +588,7 @@
   },
   "node-red-contrib-http-request": {
    "name": "node-red-contrib-http-request",
-   "version": "0.1.13",
+   "version": "0.1.14",
    "local": false,
    "nodes": {
     "www-request": {
@@ -1298,7 +1298,7 @@
   },
   "node-red-node-sentiment": {
    "name": "node-red-node-sentiment",
-   "version": "0.1.3",
+   "version": "0.1.4",
    "local": false,
    "nodes": {
     "sentiment": {
