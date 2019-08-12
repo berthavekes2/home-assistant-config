@@ -1,5 +1,5 @@
 mqtt:
-  discovery: true
+  discovery: false
   broker: 192.168.2.129  # Remove if you want to use builtin-in MQTT broker
   username: !secret MQTT_USERNAME
   password: !secret MQTT_PASSWORD
