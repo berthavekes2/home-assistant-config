@@ -2,3 +2,4 @@ platform: ping
 hosts:
   pingmarc: 192.168.2.33
   pingthom: 192.168.2.34
+consider_home: 0:05
