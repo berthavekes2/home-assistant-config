@@ -1,4 +1,4 @@
-media_player.tv_huiskamer:
+media_player.tv_huiskamer2:
   expose: true
   aliases:
     - TV
