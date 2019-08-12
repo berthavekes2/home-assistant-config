@@ -1,8 +1,8 @@
-media_player.tv_huiskamer2:
+media_player.tv_huiskamer_2:
   expose: true
   aliases:
-    - TV
+    - Bose
     - Televisie
     - Radio
-    - Bose
+    - TV
     - Soundbar
