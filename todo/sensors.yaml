@@ -261,3 +261,31 @@
     alarm_time_werk: # starttijd werk uit agenda, -offset van input_number
       friendly_name: "Alarm tijd werk"
       value_template: '{{ (as_timestamp(states.calendar.werk.attributes.start_time) + (states("input_number.werk_tijd_offset") | int) * 60) | timestamp_custom("%H:%M") }}'
+##
+- platform: template
+  sensors:
+    shield_tv_bert_running_app:
+      friendly_name: "Shield TV Bert running app"
+      value_template: "{{ state_attr('media_player.shield_tv_bert', 'app_name') }}"
+##
+- platform: history_stats
+  name: Plex tijd tv vandaag
+  entity_id: sensor.shield_tv_bert_running_app
+  state: 'Plex'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+##
+- platform: template
+  sensors:
+    steam_bert_running_app:
+      friendly_name: "Steam Bert running app"
+      value_template: "{{ state_attr('sensor.steam_76561198137535963', 'game') }}"
+##
+- platform: history_stats
+  name: Bert tijd ETS2 deze week
+  entity_id: sensor.steam_bert_running_app
+  state: 'Euro Truck Simulator 2'
+  type: time
+  start: '{{ as_timestamp( now().replace(hour=0).replace(minute=0).replace(second=0) ) - now().weekday() * 86400 }}'
+  end: '{{ now() }}'
