@@ -1,0 +1,10 @@
+platform: template
+lights:
+  staande_lamp_bank:
+    friendly_name: "Staande lamp bank"
+    turn_on:
+      service: rflink.send_command
+      data: {"command": "on", "device_id": "newkaku_035b7c00_3"}
+    turn_off:
+      service: rflink.send_command
+      data: {"command": "off", "device_id": "newkaku_035b7c00_3"}
