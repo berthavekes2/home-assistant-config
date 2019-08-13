@@ -1,8 +1,8 @@
 platform: androidtv
-host: 192.168.2.42
-name: Shield TV Bert
-adb_server_ip: 127.0.0.1
-adb_server_port: 5037
+host: 192.168.2.139
+name: TV Thom
+# adb_server_ip: 127.0.0.1
+# adb_server_port: 8037
 apps:
   com.google.android.youtube.tv: "Youtube"
   org.xbmc.kodi: "Kodi"
