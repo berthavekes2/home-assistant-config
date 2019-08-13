@@ -5,6 +5,8 @@
 - platform: syncthru # Samsung Laser printer inkt sensor
   resource: http://192.168.2.52
   name: Laser Printer
+  monitored_conditions:
+      - toner_black
 ##
 - platform: solaredge # Zonnepanelen sensor
   api_key: !secret solaredge_api
