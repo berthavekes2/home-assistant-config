@@ -161,8 +161,6 @@ binary_sensor.school_dagen:
   hidden: true
 device_tracker.google_maps_106596050310823037889:
   hidden: true
-device_tracker.google_maps_106596050310823037889:
-  hidden: true
 device_tracker.google_maps_116461996308389920595:
   hidden: true
 device_tracker.google_maps_117430214966920724026:
