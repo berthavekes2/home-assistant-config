@@ -1,0 +1,10 @@
+platform: solaredge # Zonnepanelen sensor
+api_key: !secret solaredge_api
+site_id: !secret solaredge_side_id
+name: SolarEdge
+monitored_conditions:
+  - current_power
+  - energy_today
+  - energy_this_month
+  - energy_this_year
+  - lifetime_energy

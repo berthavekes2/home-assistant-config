@@ -1,0 +1,3 @@
+platform: mqtt
+name: "Nokia Bert wekker"
+state_topic: "stat/nokiabert/wekker"

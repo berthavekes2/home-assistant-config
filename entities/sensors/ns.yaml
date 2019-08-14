@@ -1,0 +1,10 @@
+platform: nederlandse_spoorwegen # NS treinen status
+email: !secret ns_email
+password: !secret ns_password
+routes:
+- name: Leiden-Den Haag HS
+  from: Ledn
+  to: Gv
+- name: Den Haag HS-Leiden
+  from: Gv
+  to: Ledn

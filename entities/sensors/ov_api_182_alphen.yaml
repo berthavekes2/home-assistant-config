@@ -1,0 +1,4 @@
+platform: ovapi
+name: Bus 182 Ter Aar
+timing_point_code: 54441000
+line_filter: 182

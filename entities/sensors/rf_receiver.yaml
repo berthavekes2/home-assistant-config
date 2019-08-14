@@ -1,0 +1,3 @@
+platform: mqtt
+state_topic: "sensors/rf/receiver"
+name: "RF Receiver"

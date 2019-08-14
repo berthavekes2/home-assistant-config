@@ -1,0 +1,10 @@
+platform: template
+sensors:
+  serverbert:
+    friendly_name: "ServerBert"
+    value_template: >-
+      {% if is_state('binary_sensor.serverbert', 'on') %}
+        Online
+      {% else %}
+        Offline
+      {% endif %}

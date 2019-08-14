@@ -1,0 +1,6 @@
+platform: template
+sensors:
+  solaredge_totale_looptijd:
+    friendly_name: "solaredge_totale_looptijd"
+    unit_of_measurement: 'MWh'
+    value_template: '{{(states.sensor.solaredge_lifetime_energy.state | float / 1000000) | round(3)}}'

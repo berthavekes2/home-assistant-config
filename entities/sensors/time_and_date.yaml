@@ -1,0 +1,3 @@
+platform: time_date # datum en tijd nu
+display_options:
+- 'date_time'

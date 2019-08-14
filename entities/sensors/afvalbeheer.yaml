@@ -1,0 +1,14 @@
+platform: afvalbeheer
+wastecollector: Cyclus
+resources:
+  - restafval
+  - gft
+  - papier
+  - pmd
+postcode: 2461TG
+streetnumber: 47
+upcomingsensor: 1
+dateformat: '%d %b'
+dateonly: 1
+nameprefix: 0
+builtinicons: 0

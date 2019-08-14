@@ -1,0 +1,5 @@
+platform: template
+sensors:
+  alarm_time_werk: # starttijd werk uit agenda, -offset van input_number
+    friendly_name: "Alarm tijd werk"
+    value_template: '{{ (as_timestamp(states.calendar.werk.attributes.start_time) + (states("input_number.werk_tijd_offset") | int) * 60) | timestamp_custom("%H:%M") }}'

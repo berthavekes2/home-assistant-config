@@ -1,0 +1,7 @@
+platform: history_stats
+name: Bert tijd ETS2 deze week
+entity_id: sensor.steam_bert_running_app
+state: 'Euro Truck Simulator 2'
+type: time
+start: '{{ as_timestamp( now().replace(hour=0).replace(minute=0).replace(second=0) ) - now().weekday() * 86400 }}'
+end: '{{ now() }}'

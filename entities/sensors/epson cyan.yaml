@@ -1,0 +1,5 @@
+platform: command_line
+name: Epson Ink Level Cyan
+command: /usr/bin/curl -k https://192.168.2.53/PRESENTATION/HTML/TOP/PRTINFO.HTML | awk -F"'" '/Ink_C.PNG/ && $6+0 == $6 { printf "%.0f\n", $6 / 50 * 100 }'
+unit_of_measurement: '%'
+scan_interval: 14400

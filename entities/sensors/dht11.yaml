@@ -1,0 +1,6 @@
+platform: dht # Temperatuursensor in kist
+sensor: DHT11
+pin: 4
+monitored_conditions:
+  - temperature
+  - humidity

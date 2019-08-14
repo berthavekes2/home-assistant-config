@@ -1,0 +1,6 @@
+platform: template
+sensors:
+  solaredge_dit_jaar:
+    friendly_name: "solaredge_dit_jaar"
+    unit_of_measurement: 'kWh'
+    value_template: '{{(states.sensor.solaredge_energy_this_year.state | float / 1000) | round(2)}}'

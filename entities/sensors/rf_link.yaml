@@ -1,0 +1,9 @@
+platform: rflink
+#devices:
+#  elrodb_00fed593_1:
+#    name: Deurbel
+#    sensor_type: doorbell_melody
+#  doorbell_0e68_1:
+#    name: Deurbel
+#    sensor_type: doorbell_melody
+automatic_add: false

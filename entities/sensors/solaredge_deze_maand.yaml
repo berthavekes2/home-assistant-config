@@ -1,0 +1,6 @@
+platform: template
+sensors:
+  solaredge_deze_maand:
+    friendly_name: "solaredge_deze_maand"
+    unit_of_measurement: 'kWh'
+    value_template: '{{(states.sensor.solaredge_energy_this_month.state | float / 1000) | round(2)}}'

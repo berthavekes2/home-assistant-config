@@ -1,0 +1,5 @@
+platform: template # geeft starttijd voor volgende werkdienst
+sensors:
+  starttimewerk:
+    friendly_name: "Start tijd werk"
+    value_template: "{{ as_timestamp(strptime(state_attr('calendar.werk', 'start_time'), '%Y-%m-%d %H:%M:%S')) | timestamp_custom('%H:%M') }}"

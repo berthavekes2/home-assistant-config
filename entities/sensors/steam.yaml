@@ -1,0 +1,7 @@
+platform: steam_online # Status Steam accounts
+api_key: !secret steam_api
+accounts:
+  - !secret steam_account_bert
+  - !secret steam_account_marc
+  - !secret steam_account_thom
+  - !secret steam_account_thom2

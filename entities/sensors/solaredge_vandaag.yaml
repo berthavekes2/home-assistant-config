@@ -1,0 +1,6 @@
+platform: template
+sensors:
+  solaredge_vandaag:
+    friendly_name: "solaredge_vandaag"
+    unit_of_measurement: 'Wh'
+    value_template: '{{(states.sensor.solaredge_energy_today.state)}}'

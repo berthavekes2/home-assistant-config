@@ -1,0 +1,10 @@
+platform: template # Verandering benaming online/offline
+sensors:
+  asusbert:
+    friendly_name: "AsusBert"
+    value_template: >-
+      {% if is_state('binary_sensor.asusbert', 'on') %}
+        Online
+      {% else %}
+        Offline
+      {% endif %}

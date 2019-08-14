@@ -1,0 +1,6 @@
+platform: template
+sensors:
+  solaredge_huidig_vermogen:
+    friendly_name: "solaredge_huidig_vermogen"
+    unit_of_measurement: 'W'
+    value_template: '{{(states.sensor.solaredge_current_power.state)}}'

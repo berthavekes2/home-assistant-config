@@ -1,0 +1,3 @@
+platform: postnl # PostNL pakketstatus
+username: !secret postnl_bert_username
+password: !secret postnl_bert_password

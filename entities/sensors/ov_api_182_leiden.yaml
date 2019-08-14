@@ -1,0 +1,4 @@
+platform: ovapi
+name: Bus 182 Leiden
+timing_point_code: 54732091
+line_filter: 182

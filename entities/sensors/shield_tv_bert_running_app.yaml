@@ -1,0 +1,5 @@
+platform: template
+sensors:
+  shield_tv_bert_running_app:
+    friendly_name: "Shield TV Bert running app"
+    value_template: "{{ state_attr('media_player.shield_tv_bert', 'app_name') }}"

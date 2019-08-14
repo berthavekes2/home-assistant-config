@@ -1,0 +1,6 @@
+platform: plex # Plex viewer status
+host: "5.132.90.5"
+port: 32400
+username: !secret plex_username
+password: !secret plex_password
+token: !secret plex_token
