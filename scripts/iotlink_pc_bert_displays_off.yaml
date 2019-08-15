@@ -1,0 +1,7 @@
+pc_bert_displays_off:
+  alias: "PC Bert - Displays OFF"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/pc-bert/commands/displays/off"
+        payload: ""

@@ -1,0 +1,10 @@
+platform: mqtt
+name: "PC Bert - HDD Label (C)"
+state_topic: "iotlink/workgroup/pc-bert/windows-monitor/stats/hard-drive/c/volume-label"
+unit_of_measurement: ''
+icon: mdi:harddisk
+value_template: "{{ value }}"
+availability_topic: "iotlink/workgroup/pc-bert/lwt"
+payload_available: "ON"
+payload_not_available: "OFF"
+qos: 1

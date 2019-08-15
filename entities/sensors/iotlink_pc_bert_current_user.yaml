@@ -1,0 +1,10 @@
+platform: mqtt
+name: "PC Bert - Current User"
+state_topic: "iotlink/workgroup/pc-bert/windows-monitor/stats/current-user"
+unit_of_measurement: ''
+icon: mdi:account
+value_template: "{{ value }}"
+availability_topic: "iotlink/workgroup/pc-bert/lwt"
+payload_available: "ON"
+payload_not_available: "OFF"
+qos: 1

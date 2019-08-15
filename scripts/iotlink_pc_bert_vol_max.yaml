@@ -1,0 +1,7 @@
+pc_bert_vol_max:
+  alias: "PC Bert - Vol Max"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/pc-bert/commands/volume/set"
+        payload: "100"

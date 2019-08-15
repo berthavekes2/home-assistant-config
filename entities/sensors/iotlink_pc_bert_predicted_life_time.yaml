@@ -1,0 +1,10 @@
+platform: mqtt
+name: "PC Bert - Predicted Lifetime"
+state_topic: "iotlink/workgroup/pc-bert/windows-monitor/stats/battery/full-lifetime"
+unit_of_measurement: 'minutes'
+icon: mdi:timer
+value_template: "{{ ( value | float / 60 ) | int }}"
+availability_topic: "iotlink/workgroup/pc-bert/lwt"
+payload_available: "ON"
+payload_not_available: "OFF"
+qos: 1

@@ -1,0 +1,7 @@
+pc_bert_refresh:
+  alias: "PC Bert - Refresh"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/pc-bert/refresh"
+        payload: ""

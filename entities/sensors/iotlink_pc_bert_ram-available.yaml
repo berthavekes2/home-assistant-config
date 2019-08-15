@@ -1,0 +1,10 @@
+platform: mqtt
+name: "PC Bert - RAM Available"
+state_topic: "iotlink/workgroup/pc-bert/windows-monitor/stats/memory/available"
+unit_of_measurement: 'MB'
+icon: mdi:memory
+value_template: "{{ value }}"
+availability_topic: "iotlink/workgroup/pc-bert/lwt"
+payload_available: "ON"
+payload_not_available: "OFF"
+qos: 1

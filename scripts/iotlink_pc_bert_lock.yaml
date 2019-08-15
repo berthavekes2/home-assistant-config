@@ -1,0 +1,7 @@
+pc_bert_lock:
+  alias: "PC Bert - Lock"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/pc-bert/commands/lock"
+        payload: ""
