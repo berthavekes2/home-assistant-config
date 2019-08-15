@@ -1,0 +1,3 @@
+platform: mqtt
+name: "PC Bert - Screen 0"
+topic: "iotlink/workgroup/pc-bert/windows-monitor/stats/display/0/screen"
