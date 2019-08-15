@@ -1,0 +1,6 @@
+pc_bert_wake:
+  alias: "PC Bert - Wake"
+  sequence:
+    - service: wake_on_lan.send_magic_packet
+      data:
+        mac: "70:85:C2:63:9F:11"

@@ -1,0 +1,10 @@
+platform: mqtt
+name: "PC Bert - HDD Used Space (D)"
+state_topic: "iotlink/workgroup/pc-bert/windows-monitor/stats/hard-drive/d/used-space"
+unit_of_measurement: 'GB'
+icon: mdi:harddisk
+value_template: "{{ value }}"
+availability_topic: "iotlink/workgroup/pc-bert/lwt"
+payload_available: "ON"
+payload_not_available: "OFF"
+qos: 1
