@@ -1,0 +1,7 @@
+platform: history_stats
+name: Plex tijd tv deze week
+entity_id: sensor.shield_tv_bert_running_app
+state: 'Plex'
+type: time
+start: '{{ as_timestamp( now().replace(hour=0).replace(minute=0).replace(second=0) ) - now().weekday() * 86400 }}'
+end: '{{ now() }}'
