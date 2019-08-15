@@ -1,0 +1,7 @@
+surface_bert_shutdown:
+alias: "Surface Bert - Shutdown"
+sequence:
+  - service: mqtt.publish
+    data:
+      topic: "iotlink/workgroup/surface-book-2-/commands/shutdown"
+      payload: ""

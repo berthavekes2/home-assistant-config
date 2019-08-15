@@ -1,0 +1,10 @@
+platform: template
+switches:
+  surface_bert:
+    friendly_name: "Surface Bert"
+    value_template: "{{ is_state('binary_sensor.surface_bert_connected', 'on') }}"
+    turn_on:
+      service: script.surface_bert_wake
+    turn_off:
+      service: script.surface_bert_shutdown
+    icon_template: mdi:laptop

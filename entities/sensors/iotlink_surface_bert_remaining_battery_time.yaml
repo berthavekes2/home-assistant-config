@@ -1,0 +1,10 @@
+platform: mqtt
+name: "Surface Bert - Remaining Battery Time"
+state_topic: "iotlink/workgroup/surface-book-2-/windows-monitor/stats/battery/remaining-time"
+unit_of_measurement: 'minutes'
+icon: mdi:timer
+value_template: "{{ ( value | float / 60 ) | int }}"
+availability_topic: "iotlink/workgroup/surface-book-2-/lwt"
+payload_available: "ON"
+payload_not_available: "OFF"
+qos: 1

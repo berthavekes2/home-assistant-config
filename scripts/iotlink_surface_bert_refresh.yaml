@@ -1,0 +1,7 @@
+surface_bert_refresh:
+alias: "Surface Bert - Refresh"
+sequence:
+  - service: mqtt.publish
+    data:
+      topic: "iotlink/workgroup/surface-book-2-/refresh"
+      payload: ""

@@ -1,0 +1,10 @@
+platform: mqtt
+name: "Surface Bert - Current User"
+state_topic: "iotlink/workgroup/surface-book-2-/windows-monitor/stats/current-user"
+unit_of_measurement: ''
+icon: mdi:account
+value_template: "{{ value }}"
+availability_topic: "iotlink/workgroup/surface-book-2-/lwt"
+payload_available: "ON"
+payload_not_available: "OFF"
+qos: 1

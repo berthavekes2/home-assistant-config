@@ -1,0 +1,7 @@
+surface_bert_logoff:
+alias: "Surface Bert - Logoff"
+sequence:
+  - service: mqtt.publish
+    data:
+      topic: "iotlink/workgroup/surface-book-2-/commands/logoff"
+      payload: ""

@@ -1,0 +1,7 @@
+surface_bert_notify:
+alias: "Surface Bert - Notify"
+sequence:
+  - service: mqtt.publish
+    data:
+      topic: "iotlink/workgroup/surface-book-2-/commands/notify"
+      payload: '{ "title": "My Notification Title", "message": "This is an example of notification using IOT Link", "launchParams": "toast://open/https://iotlink.gitlab.io" }'

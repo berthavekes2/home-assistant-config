@@ -1,0 +1,3 @@
+platform: mqtt
+name: "Surface Bert - Screen 0"
+topic: "iotlink/workgroup/surface-book-2-/windows-monitor/stats/display/0/screen"

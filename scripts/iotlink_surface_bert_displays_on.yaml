@@ -1,0 +1,7 @@
+surface_bert_displays_on:
+alias: "Surface Bert - Displays ON"
+sequence:
+  - service: mqtt.publish
+    data:
+      topic: "iotlink/workgroup/surface-book-2-/commands/displays/on"
+      payload: ""
