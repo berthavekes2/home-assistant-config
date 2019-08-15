@@ -6,3 +6,37 @@
 # https://www.home-assistant.io/components/logbook/
 #
 logbook:
+  exclude:
+    entities:
+####### PC-Bert ###################################################
+      - binary_sensor.pc_bert_connected
+      - camera.pc_bert_screen_0
+      - script.pc_bert_displays_off
+      - script.pc_bert_displays_on
+      - script.pc_bert_hibernate
+      - script.pc_bert_lock
+      - script.pc_bert_logoff
+      - script.pc_bert_notify
+      - script.pc_bert_reboot
+      - script.pc_bert_run_chrome
+      - script.pc_bert_shutdown
+      - script.pc_bert_suspend
+      - script.pc_bert_vol_max
+      - script.pc_bert_vol_mute
+      - script.pc_bert_wake
+      - sensor.pc_bert_cpu_usage
+      - sensor.pc_bert_current_user
+      - sensor.pc_bert_hdd_format_c
+      - sensor.pc_bert_hdd_free_space_c
+      - sensor.pc_bert_hdd_label_c
+      - sensor.pc_bert_hdd_total_size_c
+      - sensor.pc_bert_hdd_usage_c
+      - sensor.pc_bert_hdd_used_space_c
+      - sensor.pc_bert_idle_time
+      - sensor.pc_bert_network_ipv4
+      - sensor.pc_bert_network_speed
+      - sensor.pc_bert_ram_available
+      - sensor.pc_bert_ram_total
+      - sensor.pc_bert_ram_usage
+      - sensor.pc_bert_ram_used
+      - switch.pc_bert
