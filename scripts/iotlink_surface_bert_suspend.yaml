@@ -1,7 +1,7 @@
 surface_bert_suspend:
-alias: "Surface Bert - Suspend"
-sequence:
-  - service: mqtt.publish
-    data:
-      topic: "iotlink/workgroup/surface-book-2-/commands/suspend"
-      payload: ""
+  alias: "Surface Bert - Suspend"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/surface-book-2-/commands/suspend"
+        payload: ""

@@ -1,7 +1,7 @@
 surface_bert_hibernate:
-alias: "Surface Bert - Hibernate"
-sequence:
-  - service: mqtt.publish
-    data:
-      topic: "iotlink/workgroup/surface-book-2-/commands/hibernate"
-      payload: ""
+  alias: "Surface Bert - Hibernate"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/surface-book-2-/commands/hibernate"
+        payload: ""

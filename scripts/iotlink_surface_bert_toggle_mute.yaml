@@ -1,7 +1,7 @@
 surface_bert_vol_mute:
-alias: "Surface Bert - Toggle Mute"
-sequence:
-  - service: mqtt.publish
-    data:
-      topic: "iotlink/workgroup/surface-book-2-/commands/volume/mute"
-      payload: ""
+  alias: "Surface Bert - Toggle Mute"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/surface-book-2-/commands/volume/mute"
+        payload: ""

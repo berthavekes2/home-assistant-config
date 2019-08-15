@@ -1,7 +1,7 @@
 surface_bert_vol_max:
-alias: "Surface Bert - Vol Max"
-sequence:
-  - service: mqtt.publish
-    data:
-      topic: "iotlink/workgroup/surface-book-2-/commands/volume/set"
-      payload: "100"
+  alias: "Surface Bert - Vol Max"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/surface-book-2-/commands/volume/set"
+        payload: "100"

@@ -1,7 +1,7 @@
 surface_bert_reboot:
-alias: "Surface Bert - Reboot"
-sequence:
-  - service: mqtt.publish
-    data:
-      topic: "iotlink/workgroup/surface-book-2-/commands/reboot"
-      payload: ""
+  alias: "Surface Bert - Reboot"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/surface-book-2-/commands/reboot"
+        payload: ""
