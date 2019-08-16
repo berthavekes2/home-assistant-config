@@ -1,4 +1,4 @@
 platform: google_maps
 username: !secret googleuser
 max_gps_accuracy: 100
-consider_home: 0:05
+consider_home: 0:20
