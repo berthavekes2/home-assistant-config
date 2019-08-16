@@ -1,0 +1,9 @@
+eddy_status:
+  name: Eddy
+  options:
+  - Thuis
+  - Net thuis
+  - Net weg
+  - Weg
+  - Lang weg
+  - Werk

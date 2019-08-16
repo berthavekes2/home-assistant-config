@@ -1,0 +1,10 @@
+thom_status:
+  name: Thom
+  options:
+  - Thuis
+  - Net thuis
+  - Net weg
+  - Weg
+  - Lang weg
+  - Werk
+  - School

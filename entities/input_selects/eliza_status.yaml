@@ -1,0 +1,10 @@
+eliza_status:
+  name: Eliza
+  options:
+  - Thuis
+  - Net thuis
+  - Net weg
+  - Weg
+  - Lang weg
+  - School
+  - Werk

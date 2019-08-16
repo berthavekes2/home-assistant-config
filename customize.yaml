@@ -169,3 +169,15 @@ device_tracker.life360_bert_havekes:
   hidden: true
 device_tracker.life360_thom_havekes:
   hidden: true
+input_select.bert_status:
+  entity_picture: /local/bert.jpg
+input_select.eddy_status:
+  entity_picture: /local/eddy.jpg
+input_select.eliza_status:
+  entity_picture: /local/eliza.jpg
+input_select.jacqueline_status:
+  entity_picture: /local/jacqueline.jpg
+input_select.thom_status:
+  entity_picture: /local/thom.jpg
+input_select.marc_status:
+  entity_picture: /local/marc.jpg

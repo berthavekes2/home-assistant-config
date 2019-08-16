@@ -1,0 +1,9 @@
+jacqueline_status:
+  name: Jacqueline
+  options:
+  - Thuis
+  - Net thuis
+  - Net weg
+  - Weg
+  - Lang weg
+  - Werk

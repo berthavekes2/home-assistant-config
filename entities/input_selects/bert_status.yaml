@@ -1,0 +1,10 @@
+bert_status:
+  name: Bert
+  options:
+  - Thuis
+  - Net thuis
+  - Net weg
+  - Weg
+  - Lang weg
+  - School
+  - Werk

@@ -1,0 +1,8 @@
+marc_status:
+  name: Marc
+  options:
+  - Thuis
+  - Net thuis
+  - Net weg
+  - Weg
+  - Lang weg
