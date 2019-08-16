@@ -121,6 +121,9 @@
       entity_id: person.eliza_amling
       to: 'home'
   action:
+    - service: input_boolean.turn_on
+      data:
+        entity: input_boolean.huis_occupied
     - service: input_select.select_option
       data_template:
         entity_id: >
@@ -148,31 +151,31 @@
             {% if states.input_select.marc_status.state == 'Net weg' %}
               Thuis
             {% else %}
-              Net wegd
+              Net thuis
             {% endif %}
           {% elif trigger.entity_id == 'person.thom_havekes' %}
             {% if states.input_select.thom_status.state == 'Net weg' %}
               Thuis
             {% else %}
-              Net wegd
+              Net thuis
             {% endif %}
           {% elif trigger.entity_id == 'person.eddy_havekes' %}
             {% if states.input_select.eddy_status.state == 'Net weg' %}
               Thuis
             {% else %}
-              Net wegd
+              Net thuis
             {% endif %}
           {% elif trigger.entity_id == 'person.jacqueline_havekes' %}
             {% if states.input_select.jacqueline_status.state == 'Net weg' %}
               Thuis
             {% else %}
-              Net wegd
+              Net thuis
             {% endif %}
           {% elif trigger.entity_id == 'person.eliza_amling' %}
             {% if states.input_select.eliza_status.state == 'Net weg' %}
               Thuis
             {% else %}
-              Net wegd
+              Net thuis
             {% endif %}
           {% endif %}
 - alias: Mark person as Thuis
