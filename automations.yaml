@@ -1,0 +1,96 @@
+- id: 7804932443414dc3befb65bf59979a2d
+  alias: '[tv] input_boolean tvbert_plex uit na 2sec'
+  trigger:
+  - entity_id: input_boolean.tvbert_plex
+    for:
+      seconds: '2'
+    platform: state
+    to: 'on'
+  action:
+  - entity_id: input_boolean.tvbert_plex
+    service: input_boolean.turn_off
+  initial_state: true
+- id: a50b77ed93484a09a7fcaed84dbb0148
+  alias: '[tv] Plex op TV Bert'
+  trigger:
+  - entity_id: input_boolean.tvbert_plex
+    platform: state
+    to: 'on'
+  action:
+  - data:
+      payload: plex
+      topic: cmnd/tvbert/run
+    service: mqtt.publish
+  initial_state: true
+- id: 14e903d5444b4b279b5d92954671a367
+  alias: '[tv] input_boolean tvbert_youtube uit na 2sec'
+  trigger:
+  - entity_id: input_boolean.tvbert_youtube
+    for:
+      seconds: '2'
+    platform: state
+    to: 'on'
+  action:
+  - entity_id: input_boolean.tvbert_youtube
+    service: input_boolean.turn_off
+  initial_state: true
+- id: e9dc002bd0e642278d05958a7843fe80
+  alias: '[tv] YouTube op TV Bert'
+  trigger:
+  - entity_id: input_boolean.tvbert_youtube
+    platform: state
+    to: 'on'
+  action:
+  - data:
+      payload: youtube
+      topic: cmnd/tvbert/run
+    service: mqtt.publish
+  initial_state: true
+- id: 752e2e1a28194a0e992c5083afd393fe
+  alias: '[tv] input_boolean tvbert_itv uit na 2sec'
+  trigger:
+  - entity_id: input_boolean.tvbert_itv
+    for:
+      seconds: '2'
+    platform: state
+    to: 'on'
+  action:
+  - entity_id: input_boolean.tvbert_itv
+    service: input_boolean.turn_off
+  initial_state: true
+- id: 9ec572b26362426da82ac67778ec0a94
+  alias: '[tv] KPN iTV online op TV Bert'
+  trigger:
+  - entity_id: input_boolean.tvbert_itv
+    platform: state
+    to: 'on'
+  action:
+  - data:
+      payload: itv
+      topic: cmnd/tvbert/run
+    service: mqtt.publish
+  initial_state: true
+- id: 314ee342eb894adbbafa56183ac6c614
+  alias: '[tv] input_boolean tvbert_turnon uit na 2sec'
+  trigger:
+  - entity_id: input_boolean.tvbert_turnon
+    for:
+      seconds: '2'
+    platform: state
+    to: 'on'
+  action:
+  - entity_id: input_boolean.tvbert_turnon
+    service: input_boolean.turn_off
+  initial_state: true
+- id: 1f1425feb1b544f491ccd35ece1c5bc2
+  alias: '[tv] Zet TV Bert aan'
+  trigger:
+  - entity_id: input_boolean.tvbert_turnon
+    platform: state
+    to: 'on'
+  action:
+  - data:
+      payload: turnon
+      topic: cmnd/tvbert/run
+    service: mqtt.publish
+  initial_state: true
