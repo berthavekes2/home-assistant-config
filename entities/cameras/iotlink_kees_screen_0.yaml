@@ -1,0 +1,3 @@
+platform: mqtt
+name: "KEES - Screen 0"
+topic: "iotlink/workgroup/kees/windows-monitor/stats/display/0/screen"

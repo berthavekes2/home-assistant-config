@@ -1,0 +1,7 @@
+kees_vol_mute:
+  alias: "KEES - Toggle Mute"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/kees/commands/volume/mute"
+        payload: ""

@@ -1,0 +1,7 @@
+kees_reboot:
+  alias: "KEES - Reboot"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/kees/commands/reboot"
+        payload: ""

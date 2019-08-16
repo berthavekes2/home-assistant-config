@@ -1,0 +1,7 @@
+kees_logoff:
+  alias: "KEES - Logoff"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/kees/commands/logoff"
+        payload: ""

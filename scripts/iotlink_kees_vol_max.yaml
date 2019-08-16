@@ -1,0 +1,7 @@
+kees_vol_max:
+  alias: "KEES - Vol Max"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/kees/commands/volume/set"
+        payload: "100"

@@ -1,0 +1,7 @@
+kees_lock:
+  alias: "KEES - Lock"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/kees/commands/lock"
+        payload: ""

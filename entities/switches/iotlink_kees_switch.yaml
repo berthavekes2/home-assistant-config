@@ -1,0 +1,10 @@
+platform: template
+switches:
+  kees:
+    friendly_name: "KEES"
+    value_template: "{{ is_state('binary_sensor.kees_connected', 'on') }}"
+    turn_on:
+      service: script.kees_wake
+    turn_off:
+      service: script.kees_shutdown
+    icon_template: mdi:laptop

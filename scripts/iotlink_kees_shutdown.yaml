@@ -1,0 +1,7 @@
+kees_shutdown:
+  alias: "KEES - Shutdown"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/kees/commands/shutdown"
+        payload: ""

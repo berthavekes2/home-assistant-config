@@ -1,0 +1,7 @@
+kees_displays_off:
+  alias: "KEES - Displays OFF"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/kees/commands/displays/off"
+        payload: ""

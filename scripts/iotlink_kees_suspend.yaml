@@ -1,0 +1,7 @@
+kees_suspend:
+  alias: "KEES - Suspend"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/kees/commands/suspend"
+        payload: ""

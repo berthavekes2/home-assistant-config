@@ -1,0 +1,7 @@
+kees_hibernate:
+  alias: "KEES - Hibernate"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/kees/commands/hibernate"
+        payload: ""
