@@ -1,7 +1,0 @@
-pc_bert_logoff:
-  alias: "PC Bert - Logoff"
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "iotlink/workgroup/pc-bert/commands/logoff"
-        payload: ""

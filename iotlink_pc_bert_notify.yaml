@@ -1,7 +1,0 @@
-pc_bert_notify:
-  alias: "PC Bert - Notify"
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "iotlink/workgroup/pc-bert/commands/notify"
-        payload: '{ "title": "My Notification Title", "message": "This is an example of notification using IOT Link", "launchParams": "toast://open/https://iotlink.gitlab.io" }'

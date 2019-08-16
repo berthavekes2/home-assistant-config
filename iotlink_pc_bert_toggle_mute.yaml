@@ -1,7 +1,0 @@
-pc_bert_vol_mute:
-  alias: "PC Bert - Toggle Mute"
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "iotlink/workgroup/pc-bert/commands/volume/mute"
-        payload: ""

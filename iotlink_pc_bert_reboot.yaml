@@ -1,7 +1,0 @@
-pc_bert_reboot:
-  alias: "PC Bert - Reboot"
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "iotlink/workgroup/pc-bert/commands/reboot"
-        payload: ""

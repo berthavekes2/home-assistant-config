@@ -1,7 +1,0 @@
-pc_bert_hibernate:
-  alias: "PC Bert - Hibernate"
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "iotlink/workgroup/pc-bert/commands/hibernate"
-        payload: ""

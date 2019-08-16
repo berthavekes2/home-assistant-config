@@ -1,7 +1,0 @@
-pc_bert_shutdown:
-  alias: "PC Bert - Shutdown"
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "iotlink/workgroup/pc-bert/commands/shutdown"
-        payload: ""
