@@ -34,11 +34,12 @@ zwscene.xml
 google_calendars.yaml
 life360.conf
 mind.conf
-
+www/blueiris/ipcamera.jpg
 
 # ESPHome ignores
 esphome/secrets.yaml
 esphome/**/
+esphome
 
 # Ignore add-on files
 aircast.xml
@@ -53,4 +54,4 @@ notebooks
 # Specific keeps
 !.gitkeep
 www/community/zigbee2mqtt_networkmap/source.js
-www/blueiris/ipcamera.jpg
+
