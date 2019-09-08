@@ -60,7 +60,6 @@
   initial_state: true
 - id: 9ec572b26362426da82ac67778ec0a94
   alias: '[tv] KPN iTV online op TV Bert'
-  initial_state: true
   trigger:
   - entity_id: input_boolean.tvbert_itv
     platform: state
@@ -73,7 +72,6 @@
   initial_state: true
 - id: 314ee342eb894adbbafa56183ac6c614
   alias: '[tv] input_boolean tvbert_turnon uit na 2sec'
-  initial_state: true
   trigger:
   - entity_id: input_boolean.tvbert_turnon
     for:
@@ -86,7 +84,6 @@
   initial_state: true
 - id: 1f1425feb1b544f491ccd35ece1c5bc2
   alias: '[tv] Zet TV Bert aan'
-  initial_state: true
   trigger:
   - entity_id: input_boolean.tvbert_turnon
     platform: state
