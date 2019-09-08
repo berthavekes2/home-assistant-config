@@ -1533,6 +1533,40 @@
      "file": "/config/node-red/node_modules/node-red-contrib-alarm/alarm/triggered.js"
     }
    }
+  },
+  "node-red-contrib-tuya": {
+   "name": "node-red-contrib-tuya",
+   "version": "0.1.0",
+   "local": false,
+   "nodes": {
+    "tuya": {
+     "name": "tuya",
+     "types": [
+      "tuya"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-tuya",
+     "file": "/config/node-red/node_modules/node-red-contrib-tuya/tuya.js"
+    }
+   }
+  },
+  "node-red-contrib-tuya-smart": {
+   "name": "node-red-contrib-tuya-smart",
+   "version": "1.2.0",
+   "local": false,
+   "nodes": {
+    "tuya-smart": {
+     "name": "tuya-smart",
+     "types": [
+      "tuya-smart"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-tuya-smart",
+     "file": "/config/node-red/node_modules/node-red-contrib-tuya-smart/dist/lib/tuya-smart.js"
+    }
+   }
   }
  },
  "users": {

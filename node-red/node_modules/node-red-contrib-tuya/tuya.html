@@ -1,0 +1,42 @@
+<script type="text/javascript">
+    RED.nodes.registerType('tuya',{
+        category: '',
+        color: '#4286f4',
+        defaults: {
+            name: { value: "tuya" },
+            uuid: { type: "text" },
+            ip: { type: "text" } 
+        },
+        credentials: {
+            key: { type: "password" }
+        },
+        inputs:1,
+        outputs:1,
+        label: function() {
+            return this.name||"tuya";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="tuya">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-uuid"><i class="icon-tag"></i>Device ID</label>
+        <input type="text" id="node-input-uuid" placeholder="Device ID">
+    </div>
+    <div class="form-row">
+        <label for="node-input-key"><i class="icon-tag"></i>Device Key</label>
+        <input type="text" id="node-input-key" placeholder="Device Key">
+    </div>
+    <div class="form-row">
+        <label for="node-input-ip"><i class="icon-tag"></i>Device IP</label>
+        <input type="text" id="node-input-ip" placeholder="Device IP">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="tuya">
+    <p>A node for speaking with tuya devices</p>
+</script>

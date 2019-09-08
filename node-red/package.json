@@ -7,6 +7,8 @@
         "node-red-contrib-alarm": "~1.1.2",
         "node-red-contrib-google-home-notify": "0.0.7",
         "node-red-contrib-light-scheduler": "0.0.15",
-        "node-red-contrib-pushover": "~0.1.9"
+        "node-red-contrib-pushover": "~0.1.9",
+        "node-red-contrib-tuya": "~0.1.0",
+        "node-red-contrib-tuya-smart": "~1.2.0"
     }
 }
