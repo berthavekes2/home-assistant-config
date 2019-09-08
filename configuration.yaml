@@ -14,6 +14,8 @@ homeassistant:
 
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Amsterdam
+  whitelist_external_dirs:
+    - /config/www/blueiris
 
   # Load packages
   packages: !include_dir_named integrations
@@ -31,3 +33,13 @@ webhook:
 zigbee2mqtt_networkmap:
 #  topic: your topic (optional, default zigbee2mqtt)
 wake_on_lan:
+tuya:
+  username: !secret TUYA_USERNAME
+  password: !secret TUYA_PASSWORD
+  country_code: 31
+  platform: smart_life
+logger:
+  default: error
+  logs:
+    tuya: debug
+    homeassistant.components.tuya: debug
