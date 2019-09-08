@@ -169,17 +169,17 @@ device_tracker.life360_bert_havekes:
   hidden: true
 device_tracker.life360_thom_havekes:
   hidden: true
-input_select.bert_status:
+input_select.bert_havekes:
   entity_picture: /local/bert.jpg
-input_select.eddy_status:
+input_select.eddy_havekes:
   entity_picture: /local/eddy.jpg
-input_select.eliza_status:
+input_select.eliza_amling:
   entity_picture: /local/eliza.jpg
-input_select.jacqueline_status:
+input_select.jacqueline_havekes:
   entity_picture: /local/jacqueline.jpg
-input_select.thom_status:
+input_select.thom_havekes:
   entity_picture: /local/thom.jpg
-input_select.marc_status:
+input_select.marc_havekes:
   entity_picture: /local/marc.jpg
 input_boolean.home_occupied:
   icon: mdi:account-group
