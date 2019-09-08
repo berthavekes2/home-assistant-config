@@ -53,3 +53,4 @@ notebooks
 # Specific keeps
 !.gitkeep
 www/community/zigbee2mqtt_networkmap/source.js
+www/blueiris/ipcamera.jpg
