@@ -15,7 +15,6 @@ from homeassistant.components.notify import (
     BaseNotificationService)
 
 _LOGGER = logging.getLogger(__name__)
-# REQUIREMENTS = ['python-pushover==0.4']
 
 # Top level attributes in 'data'
 ATTR_FILE = 'file'
