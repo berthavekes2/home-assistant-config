@@ -34,7 +34,7 @@ zwscene.xml
 google_calendars.yaml
 life360.conf
 mind.conf
-www/blueiris/ipcamera.jpg
+www/blueiris
 
 # ESPHome ignores
 esphome/secrets.yaml
