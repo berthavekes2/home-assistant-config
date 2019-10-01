@@ -1537,7 +1537,7 @@
   "node-red-contrib-tuya": {
    "name": "node-red-contrib-tuya",
    "version": "0.1.0",
-   "local": false,
+   "local": true,
    "nodes": {
     "tuya": {
      "name": "tuya",
@@ -1554,7 +1554,7 @@
   "node-red-contrib-tuya-smart": {
    "name": "node-red-contrib-tuya-smart",
    "version": "1.2.0",
-   "local": false,
+   "local": true,
    "nodes": {
     "tuya-smart": {
      "name": "tuya-smart",
@@ -1581,7 +1581,7 @@
      "view-show-grid": true
     }
    },
-   "menu-menu-item-sidebar": true
+   "menu-menu-item-sidebar": false
   }
  }
 }
