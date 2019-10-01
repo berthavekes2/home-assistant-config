@@ -1,0 +1,4 @@
+pi_hole:
+  host: localhost:4865
+  ssl: true
+  verify_ssl: false

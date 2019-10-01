@@ -1,0 +1,7 @@
+platform: rflink
+devices:
+  ev1527_0ef6ef_0e:
+    name: Sonoff Motion Sensor
+    device_class: motion
+    off_delay: 5
+automatic_add: false

@@ -1,6 +1,6 @@
 # Google Assistant Henk Skill
 google_assistant:
-  project_id: hassio-6ca34
+  project_id: !secret project_id
   exposed_domains:
   - light
   - scene
