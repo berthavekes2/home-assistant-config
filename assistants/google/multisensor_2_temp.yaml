@@ -1,0 +1,2 @@
+sensor.multisensor_2_temperature:
+  expose: true
