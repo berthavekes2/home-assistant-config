@@ -28,10 +28,6 @@ hacs:
   appdaemon: true
   python_script: true
   theme: true
-breaking_changes:
-webhook:
-zigbee2mqtt_networkmap:
-#  topic: your topic (optional, default zigbee2mqtt)
 wake_on_lan:
 tuya:
   username: !secret TUYA_USERNAME
