@@ -5,7 +5,7 @@ https://home-assistant.io/components/switch.blueiris/
 """
 from datetime import timedelta
 
-VERSION = '1.0.17'
+VERSION = '1.0.18'
 
 DOMAIN = 'blueiris'
 DATA_BLUEIRIS = f'data_{DOMAIN}'
@@ -137,4 +137,6 @@ SCRIPT = 'script:\n' \
          '            {{media_players[states.input_select.cast_to_screen_dropdown.state]}}\n' \
          '          media_content_id: >\n' \
          '            {% set camera_list = {[camera_conditions]} %}\n' \
-         '            {{camera_list[states.input_select.camera_dropdown.state]}}\n'
+         '            {{"[bi-url]"}}\n'
+
+HA_CAM_STATE = "camera_list[states.input_select.camera_dropdown.state]"
