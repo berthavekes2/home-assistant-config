@@ -11,6 +11,7 @@ __pycache__
 .cloud
 .storage
 deps
+www/blueiris
 
 # Specific file ignores
 .config_entries.json
@@ -34,8 +35,8 @@ zwscene.xml
 google_calendars.yaml
 life360.conf
 mind.conf
-www/blueiris
-
+www/blueiris/ipcamera.jpg
+ipcamera.jpg
 # ESPHome ignores
 esphome/secrets.yaml
 esphome/**/
@@ -54,5 +55,3 @@ notebooks
 # Specific keeps
 !.gitkeep
 www/community/zigbee2mqtt_networkmap/source.js
-
-www/blueiris/ipcamera.jpg
