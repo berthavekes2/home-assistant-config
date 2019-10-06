@@ -31,7 +31,7 @@ light.lamp_bert:
 light.lamp_marc:
   icon: mdi:ceiling-light
 light.led_strip_marc:
-  icon: mdi:led-off
+  icon: mdi:led-on
 media_player.tv_huiskamer_2:
   icon: mdi:television
 media_player.soundbar:
@@ -187,3 +187,7 @@ sensor.multisensor_1_temperature:
   device_class: temperature
 sensor.multisensor_2_temperature:
   device_class: temperature
+light.led_strip_bert_rgb:
+  icon: mdi:led-on
+light.led_strip_bert_wit:
+  icon: mdi:led-on
