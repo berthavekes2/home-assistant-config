@@ -1,0 +1,4 @@
+solaredge: # Zonnepanelen sensor
+  api_key: !secret solaredge_api
+  site_id: !secret solaredge_side_id
+  name: SolarEdge
