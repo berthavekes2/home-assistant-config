@@ -4,4 +4,10 @@ devices:
     name: Sonoff Motion Sensor
     device_class: motion
     off_delay: 5
+  chuango_74db6b_02: # linkerknop
+    name: Lamp Tafel
+    off_delay: 5
+  chuango_74db6d_02: # Rechterknop
+    name: Lamp Keuken
+    off_delay: 5
 automatic_add: false
