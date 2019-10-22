@@ -39,9 +39,6 @@
         },
         "title": "HACS (Home Assistant Community Store)"
     },
-    "confirm": {
-        "delete": "Are you sure you want to delete \"{item}\"?"
-    },
     "options": {
         "step": {
             "user": {
@@ -53,9 +50,12 @@
             }
         }
     },
+    "confirm": {
+        "delete": "Are you sure you want to delete '{item}'?"
+    },
     "repository": {
-        "authors": "Authors",
         "available": "Available",
+        "authors": "Authors",
         "back_to": "Back to",
         "changelog": "Change log",
         "flag_this": "Flag this",

@@ -1,0 +1,8 @@
+platform: mqtt
+name: "Lamp zolder"
+command_topic: "cmnd/lamp_zolder/power"
+state_topic: "stat/lamp_zolder/POWER"
+qos: 1
+payload_on: "ON"
+payload_off: "OFF"
+retain: false

@@ -191,3 +191,9 @@ light.led_strip_bert_rgb:
   icon: mdi:led-on
 light.led_strip_bert_wit:
   icon: mdi:led-on
+light.led_strip_thom_rgb:
+  icon: mdi:led-on
+light.led_strip_thom_wit:
+  icon: mdi:led-on
+light.lamp_zolder:
+  icon: mdi:ceiling-light

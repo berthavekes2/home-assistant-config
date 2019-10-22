@@ -242,6 +242,7 @@ async def load_hacs_repository(hacs):
         repository.versions.installed = const.VERSION
         repository.status.new = False
         hacs.repo = repository.repository_object
+        hacs.data_repo = await hacs().github.get_repo("hacs/default")
     except (
         AIOGitHubException,
         AIOGitHubRatelimit,
@@ -308,7 +309,7 @@ async def setup_frontend(hacs):
             "name": "hacs-frontend",
             "embed_iframe": False,
             "trust_external": False,
-            "js_url": "/hacs_experimental/main.js",
+            "js_url": f"/hacs_experimental/main.js?v={hacs.version}",
         }
 
         config = {}

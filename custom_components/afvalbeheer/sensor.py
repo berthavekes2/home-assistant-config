@@ -1,7 +1,7 @@
 """
 Sensor component for waste pickup dates from dutch waste collectors (using the http://www.opzet.nl app)
 Original Author: Pippijn Stortelder
-Current Version: 2.5.0 20190828 - Pippijn Stortelder
+Current Version: 2.5.3 20191018 - Pippijn Stortelder
 20190116 - Merged different waste collectors into 1 component
 20190119 - Added an option to change date format and fixed spelling mistakes
 20190122 - Refactor code and bug fix
@@ -18,6 +18,9 @@ Current Version: 2.5.0 20190828 - Pippijn Stortelder
 20190819 - Added Peel en Maas (credits to https://github.com/tuimz)
 20190822 - Added built-in icon for PBD (the same icon as PMD)
 20190828 - Added Dutch translation weekdays
+20191008 - Small code clean up (credits to https://github.com/slootjes)
+20191118 - Translate 'None' to Dutch
+20191118 - Bug Fix
 
 Description:
   Provides sensors for the following Dutch waste collectors;
@@ -213,8 +216,8 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
                                     built_in_icons, dutch_days))
 
     if sensor_today:
-        entities.append(WasteTodaySensor(data, config[CONF_RESOURCES], waste_collector, "vandaag"))
-        entities.append(WasteTodaySensor(data, config[CONF_RESOURCES], waste_collector, "morgen"))
+        entities.append(WasteTodaySensor(data, config[CONF_RESOURCES], waste_collector, "vandaag", dutch_days))
+        entities.append(WasteTodaySensor(data, config[CONF_RESOURCES], waste_collector, "morgen", dutch_days))
 
     add_entities(entities)
 
@@ -249,7 +252,7 @@ class WasteData(object):
                     sensor_dict = {}
 
                     for key in request_json:
-                        if not key['ophaaldatum'] is None:
+                        if key['ophaaldatum'] is not None:
                             sensor_dict[str(key['id'])] = [datetime.strptime(key['ophaaldatum'], '%Y-%m-%d'), key['title'], key['icon_data']]
 
                         check_title = key['menu_title']
@@ -392,11 +395,12 @@ class WasteSensor(Entity):
 
 class WasteTodaySensor(Entity):
 
-    def __init__(self, data, sensor_types, waste_collector, day_sensor):
+    def __init__(self, data, sensor_types, waste_collector, day_sensor, dutch_days):
         self.data = data
         self.sensor_types = sensor_types
         self.waste_collector = waste_collector
         self.day = day_sensor
+        self.dutch_days = dutch_days
         self._name = waste_collector + ' ' + self.day
         self._unit = ''
         self._hidden = False
@@ -444,7 +448,10 @@ class WasteTodaySensor(Entity):
                                     retrieved_data = 1
 
                         if retrieved_data == 0:
-                            self._state = "None"
+                            if self.dutch_days:
+                                self._state = "Geen"
+                            else:
+                                self._state = "None"
                             self._hidden = True
                         else:
                             self._state = ', '.join(new_state)
