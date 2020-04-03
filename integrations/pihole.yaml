@@ -1,4 +1,4 @@
 pi_hole:
-  host: localhost:4865
+  host: 192.168.2.129:4865
   ssl: true
   verify_ssl: false

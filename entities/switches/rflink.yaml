@@ -12,3 +12,11 @@ devices:
     name: Raam sensor Bert on
   ev1527_057310_0e:
     name: Raam sensor Bert off
+  ev1527_056d00_0a:
+    name: Gordijn Bert on
+  ev1527_056d00_0e:
+    name: Gordijn Bert off
+  ev1527_05ae00_0a:
+    name: Deur sensor Thom on
+  ev1527_05ae00_0e:
+    name: Deur sensor Thom off

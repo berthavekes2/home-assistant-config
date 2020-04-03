@@ -1,0 +1,8 @@
+platform: history_stats
+name: Thom MCDonalds bezoeken deze maand
+entity_id: person.thom_havekes
+state: 'MCDonalds'
+type: count
+end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+duration:
+  days: 30

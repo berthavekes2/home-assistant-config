@@ -1,0 +1,34 @@
+# counter: !include_dir_list ../entities/counters
+counter:
+  epsonzwart:
+    name: Epson zwart
+    initial: 100
+    step: 1
+    restore: true
+    minimum: 0
+    maximum: 100
+    icon: mdi:cup-water
+  epsonmagenta:
+    name: Epson magenta
+    initial: 100
+    step: 1
+    restore: true
+    minimum: 0
+    maximum: 100
+    icon: mdi:cup-water
+  epsongeel:
+    name: Epson geel
+    initial: 100
+    step: 1
+    restore: true
+    minimum: 0
+    maximum: 100
+    icon: mdi:cup-water
+  epsoncyan:
+    name: Epson cyan
+    initial: 100
+    step: 1
+    restore: true
+    minimum: 0
+    maximum: 100
+    icon: mdi:cup-water

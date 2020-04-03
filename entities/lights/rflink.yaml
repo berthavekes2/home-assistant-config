@@ -1,18 +1,16 @@
 platform: rflink
 devices:
-
-# newkaku_035b7c00_2: # Flamingo A
-#   name:
+#  newkaku_035b7c00_2: # Flamingo A
+#   name: Kerstboom # template
 #  newkaku_035b7c00_3: # Flamingo B
-#    name: Staande lamp bank
-#  unitec_ffab_01: #Silvercrest A
-#    name:
-  unitec_ffab_02:
-    name: LED Strip Marc # Silvercrest B
-#  newkaku_035b7c00_3: # Flamingo B
-#    name:
+#    name: Staande lamp bank # template
 #  newkaku_035b7c00_4: # Flamingo C
+#    name: Kerstdorp  # template
+#  unitec_ffab_01: # Silvercrest A
 #    name:
-#  newkaku_035b7c00_4: # Flamingo D
+  unitec_ffab_02: # Silvercrest B
+    name: LED Strip Marc
+#  unitec_ffab_03: # Silvercrest C
 #    name:
+#  unitec_ffab_04: # Silvercrest D
 automatic_add: false

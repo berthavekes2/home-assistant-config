@@ -1,0 +1,5 @@
+platform: mqtt
+name: Brutus
+state_topic: 'devices/Brutus/torque'
+value_template: "{{ state_attr('sensor.brutus', 'GPS Time') }}"
+json_attributes_topic: 'devices/Brutus/torque'

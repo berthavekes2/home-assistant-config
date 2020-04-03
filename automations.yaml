@@ -94,370 +94,108 @@
       topic: cmnd/tvbert/run
     service: mqtt.publish
   initial_state: true
-# ###############################################
-# - alias: Mark person as Net thuis
-#   id: 1391y24971y439
-#   initial_state: true
-#   trigger:
-#     - platform: state
-#       entity_id: person.bert_havekes
-#       to: 'home'
-#     - platform: state
-#       entity_id: person.marc_havekes
-#       to: 'home'
-#     - platform: state
-#       entity_id: person.thom_havekes
-#       to: 'home'
-#     - platform: state
-#       entity_id: person.eddy_havekes
-#       to: 'home'
-#     - platform: state
-#       entity_id: person.jacqueline_havekes
-#       to: 'home'
-#     - platform: state
-#       entity_id: person.eliza_amling
-#       to: 'home'
-#   action:
-#     - service: input_boolean.turn_on
-#       data:
-#         entity: input_boolean.huis_occupied
-#     - service: input_select.select_option
-#       data_template:
-#         entity_id: >
-#           {% if trigger.entity_id == 'person.bert_havekes' %}
-#             input_select.bert_status
-#           {% elif trigger.entity_id == 'person.marc_havekes' %}
-#             input_select.marc_status
-#           {% elif trigger.entity_id == 'person.thom_havekes' %}
-#             input_select.thom_status
-#           {% elif trigger.entity_id == 'person.eddy_havekes' %}
-#             input_select.eddy_status
-#           {% elif trigger.entity_id == 'person.jacqueline_havekes' %}
-#             input_select.jacqueline_status
-#           {% else %}
-#             input_select.eliza_status
-#           {% endif %}
-#         option: >
-#           {% if trigger.entity_id == 'person.bert_havekes' %}
-#             {% if states.input_select.bert_status.state == 'Net weg' %}
-#               Thuis
-#             {% else %}
-#               Net thuis
-#             {% endif %}
-#           {% elif trigger.entity_id == 'person.marc_havekes' %}
-#             {% if states.input_select.marc_status.state == 'Net weg' %}
-#               Thuis
-#             {% else %}
-#               Net thuis
-#             {% endif %}
-#           {% elif trigger.entity_id == 'person.thom_havekes' %}
-#             {% if states.input_select.thom_status.state == 'Net weg' %}
-#               Thuis
-#             {% else %}
-#               Net thuis
-#             {% endif %}
-#           {% elif trigger.entity_id == 'person.eddy_havekes' %}
-#             {% if states.input_select.eddy_status.state == 'Net weg' %}
-#               Thuis
-#             {% else %}
-#               Net thuis
-#             {% endif %}
-#           {% elif trigger.entity_id == 'person.jacqueline_havekes' %}
-#             {% if states.input_select.jacqueline_status.state == 'Net weg' %}
-#               Thuis
-#             {% else %}
-#               Net thuis
-#             {% endif %}
-#           {% elif trigger.entity_id == 'person.eliza_amling' %}
-#             {% if states.input_select.eliza_status.state == 'Net weg' %}
-#               Thuis
-#             {% else %}
-#               Net thuis
-#             {% endif %}
-#           {% endif %}
-# #######################################################
-# - alias: Mark person as Thuis
-#   id: 9r98e9ri9weri0q
-#   initial_state: true
-#   trigger:
-#     - platform: state
-#       entity_id: input_select.bert_status
-#       to: 'Net thuis'
-#       for:
-#         minutes: 10
-#     - platform: state
-#       entity_id: input_select.marc_status
-#       to: 'Net thuis'
-#       for:
-#         minutes: 10
-#     - platform: state
-#       entity_id: input_select.thom_status
-#       to: 'Net thuis'
-#       for:
-#         minutes: 10
-#     - platform: state
-#       entity_id: input_select.eddy_status
-#       to: 'Net thuis'
-#       for:
-#         minutes: 10
-#     - platform: state
-#       entity_id: input_select.jacqueline_status
-#       to: 'Net thuis'
-#       for:
-#         minutes: 10
-#     - platform: state
-#       entity_id: input_select.eliza_status
-#       to: 'Net thuis'
-#       for:
-#         minutes: 10
-#     - platform: state
-#       entity_id: input_select.bert_status
-#       from: 'Net weg'
-#       to: 'Net thuis'
-#     - platform: state
-#       entity_id: input_select.marc_status
-#       from: 'Net weg'
-#       to: 'Net thuis'
-#     - platform: state
-#       entity_id: input_select.thom_status
-#       from: 'Net weg'
-#       to: 'Net thuis'
-#     - platform: state
-#       entity_id: input_select.eddy_status
-#       from: 'Net weg'
-#       to: 'Net thuis'
-#     - platform: state
-#       entity_id: input_select.jacqueline_status
-#       from: 'Net weg'
-#       to: 'Net thuis'
-#     - platform: state
-#       entity_id: input_select.eliza_status
-#       from: 'Net weg'
-#       to: 'Net thuis'
-#   action:
-#     - service: input_select.select_option
-#       data_template:
-#         entity_id: >
-#           {% if trigger.entity_id == 'input_select.bert_status' %}
-#             input_select.bert_status
-#           {% elif trigger.entity_id == 'input_select.marc_status' %}
-#             input_select.marc_status
-#           {% elif trigger.entity_id == 'input_select.thom_status' %}
-#             input_select.thom_status
-#           {% elif trigger.entity_id == 'input_select.eddy_status' %}
-#             input_select.eddy_status
-#           {% elif trigger.entity_id == 'input_select.jacqueline_status' %}
-#             input_select.jacqueline_status
-#           {% else %}
-#             input_select.eliza_status
-#           {% endif %}
-#         option: Thuis
-# #################################################################
-# - alias: Mark person as Net weg
-#   id: 9re90r203989
-#   initial_state: true
-#   trigger:
-#     - platform: state
-#       entity_id: person.bert_havekes
-#       from: 'home'
-#     - platform: state
-#       entity_id: person.marc_havekes
-#       from: 'home'
-#     - platform: state
-#       entity_id: person.thom_havekes
-#       from: 'home'
-#     - platform: state
-#       entity_id: person.eddy_havekes
-#       from: 'home'
-#     - platform: state
-#       entity_id: person.jacqueline_havekes
-#       from: 'home'
-#     - platform: state
-#       entity_id: person.eliza_amling
-#       from: 'home'
-#   action:
-#     - service: input_select.select_option
-#       data_template:
-#         entity_id: >
-#           {% if trigger.entity_id == 'person.bert_havekes' %}
-#             input_select.bert_status
-#           {% elif trigger.entity_id == 'person.marc_havekes' %}
-#             input_select.marc_status
-#           {% elif trigger.entity_id == 'person.thom_havekes' %}
-#             input_select.thom_status
-#           {% elif trigger.entity_id == 'person.eddy_havekes' %}
-#             input_select.eddy_status
-#           {% elif trigger.entity_id == 'person.jacqueline_havekes' %}
-#             input_select.jacqueline_status
-#           {% else %}
-#             input_select.eliza_status
-#           {% endif %}
-#         option: Net weg
-# ######################################################
-# - alias: Mark person as Weg
-#   id: dijfidfjifj
-#   initial_state: true
-#   trigger:
-#     - platform: state
-#       entity_id: input_select.bert_status
-#       to: 'Net weg'
-#       for:
-#         minutes: 10
-#     - platform: state
-#       entity_id: input_select.marc_status
-#       to: 'Net weg'
-#       for:
-#         minutes: 10
-#     - platform: state
-#       entity_id: input_select.thom_status
-#       to: 'Net weg'
-#       for:
-#         minutes: 10
-#     - platform: state
-#       entity_id: input_select.eddy_status
-#       to: 'Net weg'
-#       for:
-#         minutes: 10
-#     - platform: state
-#       entity_id: input_select.jacqueline_status
-#       to: 'Net weg'
-#       for:
-#         minutes: 10
-#     - platform: state
-#       entity_id: input_select.eliza_status
-#       to: 'Net weg'
-#       for:
-#         minutes: 10
-#   action:
-#     - service: input_select.select_option
-#       data_template:
-#         entity_id: >
-#           {% if trigger.entity_id == 'input_select.bert_status' %}
-#             input_select.bert_status
-#           {% elif trigger.entity_id == 'input_select.marc_status' %}
-#             input_select.marc_status
-#           {% elif trigger.entity_id == 'input_select.thom_status' %}
-#             input_select.thom_status
-#           {% elif trigger.entity_id == 'input_selecteddy_status' %}
-#             input_select.eddy_status
-#           {% elif trigger.entity_id == 'input_select.jacqueline_status' %}
-#             input_select.jacqueline_status
-#           {% else %}
-#             input_select.eliza_status
-#           {% endif %}
-#         option: Weg"
-# ##################################################
-# - alias: Mark person as Lang weg
-#   id: 9riu9euw9gfuj
-#   initial_state: true
-#   trigger:
-#     - platform: state
-#       entity_id: input_select.bert_status
-#       to: 'Weg'
-#       for:
-#         hours: 24
-#     - platform: state
-#       entity_id: input_select.marc_status
-#       to: 'Weg'
-#       for:
-#         hours: 24
-#     - platform: state
-#       entity_id: input_select.thom_status
-#       to: 'Weg'
-#       for:
-#         hours: 24
-#     - platform: state
-#       entity_id: input_select.eddy_status
-#       to: 'Weg'
-#       for:
-#         hours: 24
-#     - platform: state
-#       entity_id: input_select.jacqueline_status
-#       to: 'Weg'
-#       for:
-#         hours: 24
-#     - platform: state
-#       entity_id: input_select.eliza_status
-#       to: 'Weg'
-#       for:
-#         hours: 24
-#   action:
-#     - service: input_select.select_option
-#       data_template:
-#         entity_id: >
-#           {% if trigger.entity_id == 'input_select.bert_status' %}
-#             input_select.bert_status
-#           {% elif trigger.entity_id == 'input_select.marc_status' %}
-#             input_select.marc_status
-#           {% elif trigger.entity_id == 'input_select.thom_status' %}
-#             input_select.thom_status
-#           {% elif trigger.entity_id == 'input_selecteddy_status' %}
-#             input_select.eddy_status
-#           {% elif trigger.entity_id == 'input_select.jacqueline_status' %}
-#             input_select.jacqueline_status
-#           {% else %}
-#             input_select.eliza_status
-#           {% endif %}
-#         option: Lang weg
-# ########################################################################
-# - alias: Mark person as School
-#   id: jvfnejvmjvm
-#   initial_state: true
-#   trigger:
-#     - platform: state
-#       entity_id: person.bert_havekes
-#       to: 'HHS'
-#     - platform: state
-#       entity_id: person.thom_havekes
-#       to: 'Scala Sacharov'
-#     - platform: state
-#       entity_id: person.eliza_amling
-#       to: 'HS Leiden'
-#   action:
-#     - service: input_select.select_option
-#       data_template:
-#         entity_id: >
-#           {% if trigger.entity_id == 'person.bert_havekes' %}
-#             input_select.bert_status
-#           {% elif trigger.entity_id == 'person.thom_havekes' %}
-#             input_select.thom_status
-#           {% else %}
-#             input_select.eliza_status
-#           {% endif %}
-#         option: School
-# ########################################################################
-# - alias: Mark person as Werk
-#   id: jvfnejvmjvm
-#   initial_state: true
-#   trigger:
-#     - platform: state
-#       entity_id: person.bert_havekes
-#       to: 'Dirk'
-#     - platform: state
-#       entity_id: person.thom_havekes
-#       to: 'Dirk'
-#     - platform: state
-#       entity_id: person.eddy_havekes
-#       to: 'Auma Benelux'
-#     - platform: state
-#       entity_id: person.jacqueline_havekes
-#       to: 'Dirk'
-#     - platform: state
-#       entity_id: person.eliza_amling
-#       to: 'Kruidvat'
-#   action:
-#     - service: input_select.select_option
-#       data_template:
-#         entity_id: >
-#           {% if trigger.entity_id == 'person.bert_havekes' %}
-#             input_select.bert_status
-#           {% elif trigger.entity_id == 'person.thom_havekes' %}
-#             input_select.thom_status
-#           {% elif trigger.entity_id == 'person.eddy_havekes' %}
-#             input_select.eddy_status
-#           {% elif trigger.entity_id == 'person.jacqueline_havekes' %}
-#             input_select.jacqueline_status
-#           {% else %}
-#             input_select.eliza_status
-#           {% endif %}
-#         option: Werk
+- id: '1572632761881'
+  alias: zolder lamp timer
+  description: ''
+  trigger:
+  - entity_id: light.lamp_zolder
+    for: 00:02:00
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - alias: ''
+    data:
+      entity_id: light.lamp_zolder
+    service: light.turn_off
+- id: '1572635259214'
+  alias: lamp zolder beweging
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.sonoff_motion_sensor
+    platform: state
+  condition:
+  - after: '17:00'
+    before: '7:00'
+    condition: time
+  action:
+  - data:
+      entity_id: light.lamp_zolder
+    service: light.turn_on
+- id: '1574711295223'
+  alias: '[thom] deur open, lamp aan'
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.deur_thom
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: light.lamp_thom
+    service: light.turn_on
+- id: '1574717691283'
+  alias: '[thom] deur dicht, beweging zolder, licht uit'
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.deur_thom
+    for: '3'
+    platform: state
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.sonoff_motion_sensor
+    state: 'on'
+  action:
+  - data:
+      entity_id: light.lamp_thom
+    service: light.turn_off
+- id: '1579263183917'
+  alias: '[inkt] Update counter epson zwart'
+  description: ''
+  trigger:
+  - entity_id: sensor.epson_ink_level_black
+    platform: state
+  condition: []
+  action:
+  - data_template:
+      value: "{{ states('sensor.epson_ink_level_black') }}"
+    entity_id: counter.epsonzwart
+    service: counter.configure
+- id: '15792631839fefb17'
+  alias: '[inkt] Update counter epson magenta'
+  description: ''
+  trigger:
+  - entity_id: sensor.epson_ink_level_magenta
+    platform: state
+  condition: []
+  action:
+  - data_template:
+      value: "{{ states('sensor.epson_ink_level_magenta') }}"
+    entity_id: counter.epsonmagenta
+    service: counter.configure
+- id: '15792631grewgg83917'
+  alias: '[inkt] Update counter epson geel'
+  description: ''
+  trigger:
+  - entity_id: sensor.epson_ink_level_yellow
+    platform: state
+  condition: []
+  action:
+  - data_template:
+      value: "{{ states('sensor.epson_ink_level_yellow') }}"
+    entity_id: counter.epsongeel
+    service: counter.configure
+- id: '15792rgwgwsg63183917'
+  alias: '[inkt] Update counter epson cyan'
+  description: ''
+  trigger:
+  - entity_id: sensor.epson_ink_level_cyan
+    platform: state
+  condition: []
+  action:
+  - data_template:
+      value: "{{ states('sensor.epson_ink_level_cyan') }}"
+    entity_id: counter.epsoncyan
+    service: counter.configure

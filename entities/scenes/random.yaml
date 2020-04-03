@@ -1,0 +1,8 @@
+name: Kleur verandering
+entities:
+  light.led_strip_thom_rgb:
+    brightness: 255
+    effect: Random
+    state: 'on'
+  light.led_strip_thom_wit:
+    state: 'off'

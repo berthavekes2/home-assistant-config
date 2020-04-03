@@ -1,0 +1,5 @@
+router:
+  title: 'ESPHome'
+  url: 'https://thuus.duckdns.org:6052/'
+  icon: mdi:chip
+  require_admin: true

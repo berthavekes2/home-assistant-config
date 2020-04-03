@@ -1,0 +1,83 @@
+platform: template
+lights:
+  groot_licht:
+    friendly_name: "Groot Licht"
+    value_template: "{{ states('switch.groot_licht') }}"
+    turn_on:
+      service: switch.turn_on
+      entity_id: switch.groot_licht
+    turn_off:
+      service: switch.turn_off
+      entity_id: switch.groot_licht
+  buiten_lamp:
+    friendly_name: "Buiten Lamp"
+    value_template: "{{ states('switch.buiten_lamp') }}"
+    turn_on:
+      service: switch.turn_on
+      entity_id: switch.buiten_lamp
+    turn_off:
+      service: switch.turn_off
+      entity_id: switch.buiten_lamp
+  lamp_bert:
+    friendly_name: "Lamp Bert"
+    value_template: "{{ states('switch.lamp_bert') }}"
+    turn_on:
+      service: switch.turn_on
+      entity_id: switch.lamp_bert
+    turn_off:
+      service: switch.turn_off
+      entity_id: switch.lamp_bert
+  lamp_aanrecht:
+    friendly_name: "Lamp Aanrecht"
+    value_template: "{{ states('switch.lamp_aanrecht') }}"
+    turn_on:
+      service: switch.turn_on
+      entity_id: switch.lamp_aanrecht
+    turn_off:
+      service: switch.turn_off
+      entity_id: switch.lamp_aanrecht
+  lamp_marc:
+    friendly_name: "Lamp Marc"
+    value_template: "{{ states('switch.lamp_marc') }}"
+    turn_on:
+      service: switch.turn_on
+      entity_id: switch.lamp_marc
+    turn_off:
+      service: switch.turn_off
+      entity_id: switch.lamp_marc
+  lamp_tafel:
+    friendly_name: "Lamp Tafel"
+    value_template: "{{ states('switch.lamp_tafel') }}"
+    turn_on:
+      service: switch.turn_on
+      entity_id: switch.lamp_tafel
+    turn_off:
+      service: switch.turn_off
+      entity_id: switch.lamp_tafel
+  lamp_thom:
+    friendly_name: "Lamp Thom"
+    value_template: "{{ states('switch.lamp_thom') }}"
+    turn_on:
+      service: switch.turn_on
+      entity_id: switch.lamp_thom
+    turn_off:
+      service: switch.turn_off
+      entity_id: switch.lamp_thom
+  lamp_zolder:
+    friendly_name: "Lamp Zolder"
+    value_template: "{{ states('switch.lamp_zolder') }}"
+    turn_on:
+      service: switch.turn_on
+      entity_id: switch.lamp_zolder
+    turn_off:
+      service: switch.turn_off
+      entity_id: switch.lamp_zolder
+  nacht_lamp:
+    friendly_name: "Nacht Lamp"
+    value_template: "{{ states('switch.nacht_lamp') }}"
+    turn_on:
+      service: switch.turn_on
+      entity_id: switch.nacht_lamp
+    turn_off:
+      service: switch.turn_off
+      entity_id: switch.nacht_lamp

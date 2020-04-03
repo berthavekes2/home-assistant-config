@@ -1,0 +1,4 @@
+platform: mqtt
+state_topic: "deurthom"
+device_class: door
+name: "Deur Thom"

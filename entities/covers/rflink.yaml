@@ -1,0 +1,6 @@
+platform: rflink
+devices:
+  RTS_02FFFF_0:
+    name: Zonnescherm Waskamer
+  RTS_0F0F0F_0:
+    name: Zonnescherm Marc

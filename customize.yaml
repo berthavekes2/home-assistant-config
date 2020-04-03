@@ -197,3 +197,29 @@ light.led_strip_thom_wit:
   icon: mdi:led-on
 light.lamp_zolder:
   icon: mdi:ceiling-light
+switch.lamp_zolder:
+  hidden: true
+binary_sensor.lamp_zolder_button:
+  hidden: true
+light.zolder_lamp_led:
+  hidden: true
+device_tracker.google_maps_105640796646412196582:
+  entity_picture: /local/thom.jpg
+  name: Thom
+  hidden: true
+switch.lamp_bert:
+  hidden: true
+switch.lamp_marc:
+  hidden: true
+switch.lamp_thom:
+  hidden: true
+switch.buiten_lamp:
+  hidden: true
+sensor.solaredge_batteries:
+  hidden: true
+sensor.brutus:
+  entity_picture: /local/brutus.jpg
+  name: Brutus
+sensor.brutus_locatie:
+  entity_picture: /local/brutus.jpg
+  name: Brutus

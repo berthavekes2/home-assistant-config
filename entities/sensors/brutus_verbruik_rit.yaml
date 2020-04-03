@@ -1,0 +1,12 @@
+platform: template
+sensors:
+  brutus_verbruik_rit:
+    friendly_name: "Brutus verbruik rit"
+    unit_of_measurement: 'km/L'
+    value_template: "{{ state_attr('sensor.brutus', 'Trip average KPL(kpl)') | round(2) }}"
+    icon_template: >-
+      {% if is_state('sun.sun', 'above_horizon') %}
+        mdi:fuel
+      {% else %}
+        mdi:fuel
+       {% endif %}

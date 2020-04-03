@@ -1,0 +1,12 @@
+platform: template
+sensors:
+  brutus_brandstof:
+    friendly_name: "Brutus brandstof"
+    unit_of_measurement: 'L'
+    value_template: "{{ (state_attr('sensor.brutus', 'Fuel Remaining (Calculated from vehicle profile)(%)' ) | float * 0.5) | round(2) }}"
+    icon_template: >-
+      {% if is_state('sun.sun', 'above_horizon') %}
+        mdi:fuel
+      {% else %}
+        mdi:fuel
+       {% endif %}

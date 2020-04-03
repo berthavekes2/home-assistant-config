@@ -1,0 +1,5 @@
+platform: group
+name: Kerst lampen
+entities:
+  - light.kerstboom
+  - light.kerstdorp

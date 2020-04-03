@@ -1,0 +1,12 @@
+platform: template
+sensors:
+  brutus_kilometerteller:
+    friendly_name: "Brutus kilometerteller"
+    unit_of_measurement: 'km'
+    value_template: "{{ state_attr('sensor.brutus', 'Trip distance (stored in vehicle profile)(km)') | round(2) }}"
+    icon_template: >-
+      {% if is_state('sun.sun', 'above_horizon') %}
+        mdi:counter
+      {% else %}
+        mdi:counter
+       {% endif %}

@@ -1,0 +1,10 @@
+platform: group
+name: Zolder lampen
+entities:
+  - light.lamp_zolder
+  - light.lamp_bert
+  - light.led_strip_bert_rgb
+  - light.led_strip_bert_wit
+  - light.lamp_thom
+  - light.led_strip_thom_rgb
+  - light.led_strip_thom_wit

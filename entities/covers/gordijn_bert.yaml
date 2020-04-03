@@ -1,0 +1,5 @@
+platform: mqtt
+name: Gordijn Bert
+state_open: "ON"
+state_closed: "OFF"
+state_topic: "gordijnbert"

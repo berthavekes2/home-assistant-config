@@ -1,0 +1,5 @@
+going_to_sleep:
+  alias: going_to_sleep
+  sequence:
+  - entity_id: input_boolean.sleep_mode
+    service: input_boolean.turn_on

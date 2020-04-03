@@ -1,8 +1,0 @@
-platform: mqtt
-name: "Groot licht"
-command_topic: "cmnd/grootlicht/power2"
-state_topic: "stat/grootlicht/POWER2"
-qos: 1
-payload_on: "ON"
-payload_off: "OFF"
-retain: false

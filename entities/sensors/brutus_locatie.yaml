@@ -1,0 +1,9 @@
+platform: template
+sensors:
+  brutus_locatie:
+    friendly_name: Brutus locatie
+    value_template: "{{ states('sensor.brutus') }}"
+    attribute_templates:
+      latitude: "{{ state_attr('sensor.brutus', 'Latitude') }}"
+      longitude: "{{ state_attr('sensor.brutus', 'Longitude') }}"
+      gps_accuracy: "{{ state_attr('sensor.brutus', 'GPS Accuracy(m)') }}"

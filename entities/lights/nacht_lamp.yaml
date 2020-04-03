@@ -1,8 +1,0 @@
-platform: mqtt
-name: "Nacht lamp"
-command_topic: "cmnd/nachtlamp/power"
-state_topic: "stat/nachtlamp/POWER"
-qos: 1
-payload_on: "ON"
-payload_off: "OFF"
-retain: false

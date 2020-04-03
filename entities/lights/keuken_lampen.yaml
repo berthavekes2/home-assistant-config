@@ -1,0 +1,5 @@
+platform: group
+name: Keuken lampen
+entities:
+  - light.lamp_aanrecht
+  - light.lamp_tafel

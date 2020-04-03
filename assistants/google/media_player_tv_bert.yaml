@@ -1,0 +1,5 @@
+media_player.shield_tv_bert:
+  expose: true
+  aliases:
+    - TV Bert
+    - Shield

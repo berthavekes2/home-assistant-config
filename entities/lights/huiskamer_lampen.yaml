@@ -1,0 +1,10 @@
+platform: group
+name: Huiskamer lampen
+entities:
+  - light.dressoir_links
+  - light.dressoir_rechts
+  - light.lamp_bijzettafel
+  - light.staande_lamp_bank
+  - light.groot_licht
+  - light.nacht_lamp
+  - light.buiten_lamp

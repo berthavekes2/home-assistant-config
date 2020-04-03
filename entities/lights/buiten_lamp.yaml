@@ -1,8 +1,0 @@
-platform: mqtt
-name: "Buiten lamp"
-command_topic: "cmnd/grootlicht/power1"
-state_topic: "stat/grootlicht/POWER1"
-qos: 1
-payload_on: "ON"#
-payload_off: "OFF"
-retain: false

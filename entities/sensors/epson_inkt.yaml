@@ -1,0 +1,18 @@
+platform: template
+sensors:
+  epsonzwart:
+    friendly_name: Epson zwart
+    unit_of_measurement: '%'
+    value_template: "{{ states('counter.epsonzwart') }}"
+  epsonmagenta:
+    friendly_name: Epson magenta
+    unit_of_measurement: '%'
+    value_template: "{{ states('counter.epsonmagenta') }}"
+  epsongeel:
+    friendly_name: Epson geel
+    unit_of_measurement: '%'
+    value_template: "{{ states('counter.epsongeel') }}"
+  epsoncyan:
+    friendly_name: Epson cyan
+    unit_of_measurement: '%'
+    value_template: "{{ states('counter.epsoncyan') }}"

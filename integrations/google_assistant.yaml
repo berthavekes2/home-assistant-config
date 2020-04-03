@@ -4,4 +4,6 @@ google_assistant:
   exposed_domains:
   - light
   - scene
+  - cover
+  - script
   entity_config:  !include_dir_merge_named ../assistants/google

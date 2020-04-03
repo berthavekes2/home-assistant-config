@@ -6,228 +6,230 @@ https://home-assistant.io/components/blueiris/
 import logging
 import sys
 
-from homeassistant.const import (CONF_NAME, EVENT_HOMEASSISTANT_START)
-from homeassistant.helpers.dispatcher import dispatcher_send
-from homeassistant.helpers.event import track_time_interval
-from homeassistant.components.generic.camera import (CONF_STREAM_SOURCE)
-from homeassistant.util import slugify
+from datetime import datetime
 
+from homeassistant.config_entries import ConfigEntry
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers.event import async_call_later, async_track_time_interval
+from homeassistant.helpers.dispatcher import async_dispatcher_send
+
+from .device_manager import DeviceManager
+from .entity_manager import EntityManager
+from .advanced_configurations_generator import AdvancedConfigurationGenerator
+from .blue_iris_api import BlueIrisApi
 from .const import *
 
 _LOGGER = logging.getLogger(__name__)
 
 
 class BlueIrisHomeAssistant:
-    def __init__(self, hass, scan_interval, cast_url):
-        self._scan_interval = scan_interval
+    def __init__(self, hass: HomeAssistant, entry: ConfigEntry):
+        self._config_entry = entry
         self._hass = hass
-        self._camera_list = None
-        self._ui_lovelace_data = [UI_LOVELACE]
-        self._script_data = []
-        self._input_select_data = INPUT_SELECT
 
-        self._cast_template = cast_url.replace('[CAM_ID]', f'" ~ {HA_CAM_STATE} ~"')
+        entry_data = self._config_entry.data
 
-    def initialize(self, bi_refresh_callback, camera_list):
-        self._camera_list = camera_list
+        self._host = entry_data.get(CONF_HOST)
+        self._port = entry_data.get(CONF_PORT)
+        self._ssl = entry_data.get(CONF_SSL)
 
-        def bi_generate_advanced_configurations(event_time):
-            """Call BlueIris to refresh information."""
-            _LOGGER.debug(f"Generating {DOMAIN} data @{event_time}")
+        self._remove_async_track_time = None
 
-            self.generate_advanced_configurations()
+        self._is_initialized = False
+        self._is_updating = False
 
-        def bi_refresh(event_time):
-            """Call BlueIris to refresh information."""
-            _LOGGER.debug(f"Updating {DOMAIN} component at {event_time}")
-            bi_refresh_callback()
-            dispatcher_send(self._hass, SIGNAL_UPDATE_BLUEIRIS)
+        self._api = None
+        self._entity_manager = None
+        self._device_manager = None
+        self._advanced_configuration_generator = None
 
-        track_time_interval(self._hass, bi_refresh, self._scan_interval)
+    @property
+    def api(self) -> BlueIrisApi:
+        return self._api
 
-        self._hass.services.register(DOMAIN, 'generate_advanced_configurations',
-                                     bi_generate_advanced_configurations)
+    @property
+    def entity_manager(self) -> EntityManager:
+        return self._entity_manager
 
-        self._hass.bus.listen_once(EVENT_HOMEASSISTANT_START, bi_refresh)
+    @property
+    def device_manager(self) -> DeviceManager:
+        return self._device_manager
 
-    def notify_error(self, ex, line_number):
-        _LOGGER.error(f"Error while initializing {DOMAIN}, exception: {ex},"
-                      f" Line: {line_number}")
+    async def initialize(self):
+        self._api = BlueIrisApi(self._hass, self._host, self._port, self._ssl)
+        self._entity_manager = EntityManager(self._hass, self)
+        self._device_manager = DeviceManager(self._hass, self)
+        self._advanced_configuration_generator = AdvancedConfigurationGenerator(self._hass, self)
 
-        self._hass.components.persistent_notification.create(
-            f"Error: {ex}<br /> You will need to restart hass after fixing.",
-            title=NOTIFICATION_TITLE,
-            notification_id=NOTIFICATION_ID)
+        def finalize(now):
+            self._hass.async_create_task(self.async_finalize(now))
 
-    def notify_error_message(self, message):
-        _LOGGER.error(f"Error while initializing {DOMAIN}, Error: {message}")
+        async_call_later(self._hass, 5, finalize)
 
-        self._hass.components.persistent_notification.create(
-            (f"Error: {message}<br /> You will need to restart hass after"
-             " fixing."),
-            title=NOTIFICATION_TITLE,
-            notification_id=NOTIFICATION_ID)
+        self._is_initialized = True
 
-    @staticmethod
-    def build_ui_lovelace(camera_ui_items):
-        camera_ui_list = '\n'.join(camera_ui_items)
+    async def async_update_entry(self, entry, clear_all):
+        if not self._is_initialized:
+            _LOGGER.info(f"NOT INITIALIZED - Failed handling ConfigEntry change: {self._config_entry.as_dict()}")
+            return
 
-        ui_lovelace = f"{UI_LOVELACE}\n{camera_ui_list}"
+        _LOGGER.info(f"Handling ConfigEntry change: {self._config_entry.as_dict()}")
 
-        _LOGGER.info(f'Script: {ui_lovelace}')
+        self._config_entry = entry
 
-        return ui_lovelace
+        entry_data = self._config_entry.data
+        entry_options = self._config_entry.options
+        username = entry_data.get(CONF_USERNAME)
+        password = entry_data.get(CONF_PASSWORD)
 
-    @staticmethod
-    def get_camera_ui_lovelace(camera_name, is_system=False):
-        camera_id = slugify(camera_name)
-        template = UI_LOVELACE_REGULAR_CAMERA
+        if entry_options is not None:
+            username = entry_options.get(CONF_USERNAME, username)
+            password = entry_options.get(CONF_PASSWORD, password)
 
-        if is_system:
-            template = UI_LOVELACE_SYSTEM_CAMERA
+        self._entity_manager.update_options(entry.options)
 
-        camera_data = template.replace('[camera_id]', camera_id) \
-            .replace('[camera_name]', camera_name)
+        if clear_all:
+            await self._api.initialize(username, password)
 
-        return camera_data
+            await self.device_manager.async_remove_entry(self._config_entry.entry_id)
 
-    @staticmethod
-    def build_script(camera_conditions, media_player_conditions, cast_template):
-        media_player_condition = ', '.join(media_player_conditions)
-        camera_condition = ', '.join(camera_conditions)
+            await self.async_update(datetime.now())
 
-        script = SCRIPT.replace('[media_player_conditions]',
-                                media_player_condition)
+    async def async_remove(self):
+        if not self._is_initialized:
+            _LOGGER.info(f"NOT INITIALIZED - Failed removing current integration - {self._host}")
+            return
 
-        script = script.replace('[camera_conditions]',
-                                camera_condition)
+        _LOGGER.info(f"Removing current integration - {self._host}")
 
-        script = script.replace('[bi-url]', cast_template)
+        self._hass.services.async_remove(DOMAIN, 'generate_advanced_configurations')
 
-        _LOGGER.info(f'Script: {script}')
+        if self._remove_async_track_time is not None:
+            self._remove_async_track_time()
 
-        return script
+        unload = self._hass.config_entries.async_forward_entry_unload
 
-    @staticmethod
-    def get_script_condition(match, value):
-        script_condition = f'"{match}": "{value}"'
+        self.entity_manager.clear_domain_states()
 
-        return script_condition
+        for domain in SUPPORTED_DOMAINS:
+            entry_loaded = self.entity_manager.get_entry_loaded_state(domain)
+            self.entity_manager.clear_entities(domain)
 
-    @staticmethod
-    def build_input_select(camera_options, media_player_options):
-        cast_to_screen_dropdown_options = '\n'.join(media_player_options)
-        camera_dropdown_options = '\n'.join(camera_options)
+            if entry_loaded:
+                self._hass.async_create_task(unload(self._config_entry, domain))
 
-        input_select = INPUT_SELECT.replace('[cast_to_screen_dropdown_options]',
-                                            cast_to_screen_dropdown_options). \
-            replace('[camera_dropdown_options]',
-                    camera_dropdown_options)
+        await self._device_manager.async_remove()
 
-        _LOGGER.info(f'Script: {input_select}')
+        _clear_ha(self._hass, self._host)
 
-        return input_select
+        _LOGGER.info(f"Current integration ({self._host}) removed")
 
-    def get_media_player_data(self):
-        media_players = self._hass.states.entity_ids('media_player')
+    async def async_finalize(self, event_time):
+        if not self._is_initialized:
+            _LOGGER.info(f"NOT INITIALIZED - Failed finalizing initialization of integration ({self._host})")
+            return
 
-        media_player_options = []
-        media_player_conditions = []
+        _LOGGER.info(f"Finalizing initialization of integration ({self._host}) at {event_time}")
 
-        is_first = True
-        for entity_id in media_players:
-            state = self._hass.states.get(entity_id)
+        self._hass.services.async_register(DOMAIN,
+                                           'generate_advanced_configurations',
+                                           self._advanced_configuration_generator.generate_advanced_configurations)
 
-            if ATTR_FRIENDLY_NAME in state.attributes:
-                name = state.attributes[ATTR_FRIENDLY_NAME]
-            else:
-                name = state.name
+        await self.async_update_entry(self._config_entry, True)
 
-            media_player_options.append(INPUT_SELECT_OPTION.replace('[item]', name))
+        def update_entities(now):
+            self._hass.async_create_task(self.async_update(now))
 
-            if is_first:
-                is_first = False
+        self._remove_async_track_time = async_track_time_interval(self._hass, update_entities, SCAN_INTERVAL)
 
-            media_player_condition = self.get_script_condition(name,
-                                                               entity_id)
-
-            media_player_conditions.append(media_player_condition)
-
-        result = {
-            CONFIG_CONDITIONS: media_player_conditions,
-            CONFIG_OPTIONS: media_player_options
-        }
-
-        return result
-
-    def get_camera_data(self):
-        camera_ui_items = []
-        camera_options = []
-        regular_camera_list = []
-        camera_conditions = []
-
-        is_first = True
-        for camera in self._camera_list:
-            camera_details = self._camera_list[camera]
-            camera_name = camera_details.get(CONF_NAME)
-
-            camera_options.append(INPUT_SELECT_OPTION.replace('[item]', camera_name))
-
-            if is_first:
-                is_first = False
-
-            camera_condition = self.get_script_condition(camera_name,
-                                                         camera)
-
-            camera_conditions.append(camera_condition)
-
-            if camera_name in SYSTEM_CAMERA_CONFIG:
-                camera_ui_item = self.get_camera_ui_lovelace(camera_name, True)
-
-                camera_ui_items.append(camera_ui_item)
-            else:
-                regular_camera_list.append(camera_name)
-
-        for camera_name in regular_camera_list:
-            camera_ui_item = self.get_camera_ui_lovelace(camera_name)
-
-            camera_ui_items.append(camera_ui_item)
-
-        result = {
-            CONFIG_CONDITIONS: camera_conditions,
-            CONFIG_OPTIONS: camera_options,
-            CONFIG_ITEMS: camera_ui_items
-        }
-
-        return result
-
-    def generate_advanced_configurations(self):
+    async def async_update(self, event_time):
+        if not self._is_initialized:
+            _LOGGER.info(f"NOT INITIALIZED - Failed updating @{event_time}")
+            return
 
         try:
-            camera_data = self.get_camera_data()
-            media_player_data = self.get_media_player_data()
+            if self._is_updating:
+                _LOGGER.debug(f"Skip updating @{event_time}")
+                return
 
-            camera_conditions = camera_data[CONFIG_CONDITIONS]
-            camera_options = camera_data[CONFIG_OPTIONS]
-            camera_ui_items = camera_data[CONFIG_ITEMS]
-            media_player_conditions = media_player_data[CONFIG_CONDITIONS]
-            media_player_options = media_player_data[CONFIG_OPTIONS]
+            _LOGGER.debug(f"Updating @{event_time}")
 
-            ui_lovelace = self.build_ui_lovelace(camera_ui_items)
-            input_select = self.build_input_select(camera_options, media_player_options)
-            script = self.build_script(camera_conditions,
-                                       media_player_conditions,
-                                       self._cast_template)
+            self._is_updating = True
 
-            components_path = self._hass.config.path('blueiris.advanced_configurations.yaml')
+            await self._api.async_update()
 
-            with open(components_path, 'w+') as out:
-                out.write(input_select)
-                out.write(script)
-                out.write(ui_lovelace)
+            await self.entity_manager.async_update()
 
+            await self.discover_all()
         except Exception as ex:
             exc_type, exc_obj, tb = sys.exc_info()
             line_number = tb.tb_lineno
 
-            _LOGGER.error(f'Failed to log BI data, Error: {ex}, Line: {line_number}')
+            _LOGGER.error(f'Failed to async_update, Error: {ex}, Line: {line_number}')
+
+        self._is_updating = False
+
+    async def discover_all(self):
+        if not self._is_initialized:
+            _LOGGER.info(f"NOT INITIALIZED - Failed discovering components")
+            return
+
+        self._device_manager.update()
+
+        for domain in SUPPORTED_DOMAINS:
+            await self.discover(domain)
+
+        self.entity_manager.clear_domain_states()
+
+    async def discover(self, domain):
+        if not self._is_initialized:
+            _LOGGER.info(f"NOT INITIALIZED - Failed discovering domain {domain}")
+            return
+
+        signal = SIGNALS.get(domain)
+
+        if signal is None:
+            _LOGGER.error(f"Cannot discover domain {domain}")
+            return
+
+        unload = self._hass.config_entries.async_forward_entry_unload
+        setup = self._hass.config_entries.async_forward_entry_setup
+
+        entry = self._config_entry
+
+        can_unload = self.entity_manager.get_domain_state(domain, DOMAIN_UNLOAD)
+        can_load = self.entity_manager.get_domain_state(domain, DOMAIN_LOAD)
+        can_notify = not can_load and not can_unload
+
+        if can_unload:
+            _LOGGER.info(f"Unloading domain {domain}")
+
+            self._hass.async_create_task(unload(entry, domain))
+            self.entity_manager.set_domain_state(domain, DOMAIN_LOAD, False)
+
+        if can_load:
+            _LOGGER.info(f"Loading domain {domain}")
+
+            self._hass.async_create_task(setup(entry, domain))
+            self.entity_manager.set_domain_state(domain, DOMAIN_UNLOAD, False)
+
+        if can_notify:
+            async_dispatcher_send(self._hass, signal)
+
+
+def _clear_ha(hass, host):
+    if DATA_BLUEIRIS not in hass.data:
+        hass.data[DATA_BLUEIRIS] = {}
+
+    del hass.data[DATA_BLUEIRIS][host]
+
+
+async def _async_set_ha(hass: HomeAssistant, host, entry: ConfigEntry):
+    if DATA_BLUEIRIS not in hass.data:
+        hass.data[DATA_BLUEIRIS] = {}
+
+    instance = BlueIrisHomeAssistant(hass, entry)
+
+    await instance.initialize()
+
+    hass.data[DATA_BLUEIRIS][host] = instance

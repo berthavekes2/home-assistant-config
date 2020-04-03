@@ -1,0 +1,12 @@
+platform: template
+sensors:
+  brutus_actieradius:
+    friendly_name: "Brutus actieradius"
+    unit_of_measurement: 'km'
+    value_template: "{{ state_attr('sensor.brutus', 'Distance to empty (Estimated)(km)') | round(2) }}"
+    icon_template: >-
+      {% if is_state('sun.sun', 'above_horizon') %}
+        mdi:counter
+      {% else %}
+        mdi:counter
+       {% endif %}

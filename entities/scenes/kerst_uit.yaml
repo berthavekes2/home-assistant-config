@@ -1,0 +1,10 @@
+name: Kerst uit
+entities:
+  light.dressoir_links:
+    state: 'off'
+  light.dressoir_rechts:
+    state: 'off'
+  light.kerstboom:
+    state: 'off'
+  light.kerstdorp:
+    state: 'off'

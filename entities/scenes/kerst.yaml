@@ -1,0 +1,12 @@
+name: Kerst
+entities:
+  light.dressoir_links:
+    state: 'on'
+    brightness_pct: 25
+  light.dressoir_rechts:
+    state: 'on'
+    brightness_pct: 25
+  light.kerstboom:
+    state: 'on'
+  light.kerstdorp:
+    state: 'on'

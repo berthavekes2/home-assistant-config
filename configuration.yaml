@@ -25,17 +25,9 @@ conversation:
 person:
 hacs:
   token: 51627746179455449d2b0481e45498ae21e20cf8
-  appdaemon: true
-  python_script: true
-  theme: true
-wake_on_lan:
-tuya:
-  username: !secret TUYA_USERNAME
-  password: !secret TUYA_PASSWORD
-  country_code: 31
-  platform: smart_life
-logger:
-  default: error
-  logs:
-    tuya: debug
-    homeassistant.components.tuya: debug
+# wake_on_lan:
+# tuya:
+#   username: !secret TUYA_USERNAME
+#   password: !secret TUYA_PASSWORD
+#   country_code: 31
+#   platform: smart_life

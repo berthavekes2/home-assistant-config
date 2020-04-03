@@ -1,0 +1,5 @@
+platform: group
+name: 1e verdieping lampen
+entities:
+  - light.lamp_marc
+  - light.led_strip_marc
